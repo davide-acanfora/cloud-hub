@@ -1,0 +1,8 @@
+apiVersion: 1
+providers:
+ - name: Provider
+   folder: ''
+   type: file
+   editable: false
+   options:
+      path: C:\Users\mardon\Desktop\grafana-6.2.5\conf\provisioning\dashboards
