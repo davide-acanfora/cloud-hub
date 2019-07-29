@@ -1,7 +1,6 @@
 package grafana;
 
-import java.io.File;
-
 public interface Configurable {
-	public File createConfig(String grafanaPath);
+	public void createConfig(String grafanaPath);
+	public void deleteConfig();
 }

@@ -10,6 +10,7 @@ import java.io.Writer;
 
 public class JSONDataSource extends AbstractDataSource{
 	private String url;
+	private File file;
 	public static final String SERVER = "proxy";
 	public static final String BROWSER = "direct";
 	
@@ -30,10 +31,18 @@ public class JSONDataSource extends AbstractDataSource{
 		setVersion(System.currentTimeMillis());
 		setEditable(false);
 	}
+	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
 	@Override
-	public File createConfig(String grafanaPath) {
-		File f = new File(grafanaPath+"\\conf\\provisioning\\datasources\\"+getName()+".yaml");
+	public void createConfig(String grafanaPath) {
+		file = new File(grafanaPath+"\\conf\\provisioning\\datasources\\"+getName()+".yaml");
 		String toFile = "apiVersion: 1\n"
 				+ "datasources:\n"
 				+ " - name: " + getName() + "\n"
@@ -45,7 +54,7 @@ public class JSONDataSource extends AbstractDataSource{
 		
 		Writer writer = null;
 		try{
-			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f)));
+			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
 			writer.write(toFile);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -58,15 +67,11 @@ public class JSONDataSource extends AbstractDataSource{
 				e.printStackTrace();
 			}
 		}
-		return f;
 	}
 
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
+	@Override
+	public void deleteConfig() {
+		file.delete();
 	}
 
 }

@@ -4,8 +4,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,17 +15,25 @@ import com.sun.net.httpserver.HttpServer;
 
 import grafana.misc.GrafanaTimeseriePoint;
 
-public class LocalMonitoringWebServer {
+public class LocalMonitoringWebServer implements Runnable{
+	private int port;
 	
-	public static final String MEMORY = "memory";
-	public static final String CPU = "cpu";
-
-	private static HashMap<String, ArrayList<GrafanaTimeseriePoint>> targetMap = new HashMap<String, ArrayList<GrafanaTimeseriePoint>>();
+	private final String search = "[\"" + SysInfo.MEMORY + "\",\"" + SysInfo.CPU + "\"]";
 	
-	private static String search = "[\"" + LocalMonitoringWebServer.MEMORY + "\",\"" + LocalMonitoringWebServer.CPU + "\"]";
+	public LocalMonitoringWebServer(int port) {
+		this.port = port;
+	}
 	
-	public static void main(String[] args) throws IOException {
-		HttpServer server = HttpServer.create(new InetSocketAddress(8081), 0);
+	public void run() {
+		try {
+			runServer(port);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void runServer(int port) throws IOException {
+		HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
 		server.createContext("/", new RequestOk());
 		server.createContext("/query", new RequestQuery());
 		server.createContext("/search", new RequestSearch());
@@ -36,18 +42,20 @@ public class LocalMonitoringWebServer {
 		//server.createContext("/tag-values", new RequestTagValues());
 		server.setExecutor(null);
 		
-		targetMap.put(LocalMonitoringWebServer.MEMORY, new ArrayList<GrafanaTimeseriePoint>());
-		targetMap.put(LocalMonitoringWebServer.CPU, new ArrayList<GrafanaTimeseriePoint>());
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() {
+				System.out.println("Stopping Web Server...");
+				server.stop(0);
+			}
+		});
 		
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		Thread collector = new Thread(new InfoCollector());
+		collector.start();
+
 		server.start();
 	}
 	
-	static class RequestOk implements HttpHandler{
+	public class RequestOk implements HttpHandler{
 		@Override
 		public void handle(HttpExchange t) throws IOException {
 			t.sendResponseHeaders(200, 0);
@@ -57,7 +65,7 @@ public class LocalMonitoringWebServer {
 		}
 	}
 	
-	static class RequestSearch implements HttpHandler{
+	public class RequestSearch implements HttpHandler{
 		@Override
 		public void handle(HttpExchange t) throws IOException {
 			t.sendResponseHeaders(200, search.length());
@@ -67,7 +75,7 @@ public class LocalMonitoringWebServer {
 		}
 	}
 	
-	static class RequestQuery implements HttpHandler{
+	public class RequestQuery implements HttpHandler{
 		@Override
 		public void handle(HttpExchange t) throws IOException {
 			StringBuilder body = new StringBuilder();
@@ -96,14 +104,7 @@ public class LocalMonitoringWebServer {
 						break;
 					}
 					
-					if (!target.isNull("data")) {
-						JSONObject data = target.getJSONObject("data");
-						if (data.has("create")) 
-							if (data.getBoolean("create")) 
-								targetMap.get(key).add(new GrafanaTimeseriePoint(SysInfo.getSysInfo(key), System.currentTimeMillis()));						
-					}
-					
-					if (!targetMap.get(key).isEmpty()) {
+					if (!InfoCollector.targetMap.get(key).isEmpty()) {
 						JSONObject object = getTargetPoints(key);
 						response.put(object);
 					}
@@ -127,7 +128,7 @@ public class LocalMonitoringWebServer {
 			JSONObject object = new JSONObject();
 			object.put("target", target);
 			JSONArray points = new JSONArray();
-			for (GrafanaTimeseriePoint point : targetMap.get(target)) {
+			for (GrafanaTimeseriePoint point : InfoCollector.targetMap.get(target)) {
 				JSONArray JSONpoint = new JSONArray();
 				JSONpoint.put(point.getValue());
 				JSONpoint.put(point.getTimestamp());

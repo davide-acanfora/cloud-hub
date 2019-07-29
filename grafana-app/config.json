@@ -1,0 +1,11 @@
+{
+	"grafana-path":"grafana-windows",
+	
+	"grafana-port":8080,
+	"api-server-port":8081,
+	
+	"json-datasource-name":"JSONDataSource",
+	"dashboard-provider-name":"Provider",
+	
+	"collector-delay":2000
+}

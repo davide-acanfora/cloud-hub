@@ -5,12 +5,15 @@ import com.sun.management.OperatingSystemMXBean;
 
 public class SysInfo{
 	
+	public static final String MEMORY = "memory";
+	public static final String CPU = "cpu";
+	
 	private static OperatingSystemMXBean osBean = ManagementFactory.getPlatformMXBean(OperatingSystemMXBean.class);
 	
 	public static double getSysInfo(String metric) {
-		if (metric.equals(LocalMonitoringWebServer.CPU))
+		if (metric.equals(LocalMonitoringWebServertTest.CPU))
 			return getCpuUsage();
-		else if (metric.equals(LocalMonitoringWebServer.MEMORY))
+		else if (metric.equals(LocalMonitoringWebServertTest.MEMORY))
 			return getMemoryUsage();
 		else 
 			return -1;
