@@ -3,34 +3,39 @@ import java.lang.management.ManagementFactory;
 
 import com.sun.management.OperatingSystemMXBean;
 
+//Classe che si interfaccia con il sistema per ottenerne i valori attuali
 public class SysInfo{
 	
-	public static final String MEMORY = "memory";
-	public static final String CPU = "cpu";
+	//Interfaccia fornita da Java per la gestione del sistema operativo sul quale la JVM è in esecuzione
+	private static OperatingSystemMXBean systemInterface = ManagementFactory.getPlatformMXBean(OperatingSystemMXBean.class);
 	
-	private static OperatingSystemMXBean osBean = ManagementFactory.getPlatformMXBean(OperatingSystemMXBean.class);
-	
-	public static double getSysInfo(String metric) {
-		if (metric.equals(LocalMonitoringWebServertTest.CPU))
+	//Metodo per ottenere il valore attuale della metrica passata come parametro
+	public static double getSysInfo(Metric metric) {
+		
+		switch (metric) {
+		case CPU:
 			return getCpuUsage();
-		else if (metric.equals(LocalMonitoringWebServertTest.MEMORY))
+		case MEMORY:
 			return getMemoryUsage();
-		else 
-			return -1;
+		default:
+			throw new UnsupportedMetricException("La metrica '"+metric.name()+"' richiesta non è implementata");
+		}		
 	}
 
+	//Ritorna in percentuale la quantità di RAM usata
 	private static double getMemoryUsage() {
-		double currentMemory = osBean.getFreePhysicalMemorySize();
-		double totalMemory = osBean.getTotalPhysicalMemorySize();
+		double currentMemory = systemInterface.getFreePhysicalMemorySize();
+		double totalMemory = systemInterface.getTotalPhysicalMemorySize();
 		return 100-(currentMemory*100/totalMemory);
 	}
 
-	
+	//Ritorna in percentuale l'utilizzo complessivo della CPU
 	private static double getCpuUsage(){
-		double usage = osBean.getSystemCpuLoad()*100;
+		double usage = systemInterface.getSystemCpuLoad()*100;
 		return usage <= 100 ? usage > 0 ? usage : 0 : 100;
 	}
 
+	//debug
 	public static void main(String[] args) throws InterruptedException{
 		while (true) {
 			System.out.println(getCpuUsage());
