@@ -1,6 +1,5 @@
 package monitoring;
 import java.lang.management.ManagementFactory;
-
 import com.sun.management.OperatingSystemMXBean;
 
 //Classe che si interfaccia con il sistema per ottenerne i valori attuali
@@ -24,9 +23,7 @@ public class SysInfo{
 
 	//Ritorna in percentuale la quantità di RAM usata
 	private static double getMemoryUsage() {
-		double currentMemory = systemInterface.getFreePhysicalMemorySize();
-		double totalMemory = systemInterface.getTotalPhysicalMemorySize();
-		return 100-(currentMemory*100/totalMemory);
+		return 100 - (systemInterface.getFreePhysicalMemorySize() * 100 / systemInterface.getTotalPhysicalMemorySize());
 	}
 
 	//Ritorna in percentuale l'utilizzo complessivo della CPU

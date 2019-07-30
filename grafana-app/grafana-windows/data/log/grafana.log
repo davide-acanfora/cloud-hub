@@ -3526,3 +3526,683 @@ t=2019-07-30T10:49:45+0200 lvl=info msg="Request Completed" logger=context userI
 t=2019-07-30T10:49:47+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
 t=2019-07-30T10:49:47+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
 t=2019-07-30T10:49:47+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:19:37+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:19:37+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:19:37+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:19:37+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:19:37+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:19:37+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:19:37+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:19:37+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:19:37+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:19:37+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:19:37+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:19:37+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:19:37+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:19:37+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T11:19:49+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=8 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:19:49+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=8 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:19:49+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=6 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:19:51+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=2 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:19:51+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=3 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:19:51+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:19:53+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=2 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:19:53+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=2 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:19:53+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:12+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:39:12+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:39:12+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:39:12+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:39:12+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:39:12+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:39:12+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:39:12+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:39:12+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:39:12+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:39:12+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:39:12+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:39:12+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:39:12+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T11:39:17+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=47 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:17+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=50 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:17+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=12 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:17+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=11 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:17+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=12 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:17+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=14 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:19+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=23 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:19+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=19 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:19+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=9 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:21+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=15 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:21+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=13 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:21+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=9 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:23+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=2 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:23+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:23+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:25+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:25+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=2 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:25+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:39:27+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=0 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s&fullscreen&edit&panelId=2"
+t=2019-07-30T11:39:29+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s&fullscreen&edit&panelId=2"
+t=2019-07-30T11:39:31+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=0 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s&fullscreen&edit&panelId=2"
+t=2019-07-30T11:39:33+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s&fullscreen&edit&panelId=2"
+t=2019-07-30T11:39:35+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=0 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s&fullscreen&edit&panelId=2"
+t=2019-07-30T11:39:35+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=1 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s&fullscreen&edit&panelId=2"
+t=2019-07-30T11:39:37+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=2 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s&fullscreen&edit&panelId=2"
+t=2019-07-30T11:39:39+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=0 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s&fullscreen&edit&panelId=2"
+t=2019-07-30T11:40:20+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:40:20+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:40:20+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:40:20+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:40:20+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:40:20+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:40:20+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:40:20+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:40:20+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:40:20+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:40:20+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:40:20+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:40:20+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:40:20+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T11:40:20+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=127.0.0.1 time_ms=9 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:40:20+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=127.0.0.1 time_ms=7 size=0 referer="http://localhost:8080/d/isislab/cloud-control?orgId=1&refresh=2s"
+t=2019-07-30T11:40:47+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:40:47+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:40:47+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:40:47+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:40:47+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:40:47+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:40:47+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:40:47+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:40:47+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:40:47+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:40:47+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:40:47+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:40:47+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:40:47+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T11:42:21+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:42:21+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:42:21+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:42:21+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:42:21+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:42:21+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:42:21+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:42:21+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:42:21+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:42:21+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:42:21+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:42:21+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:42:21+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:42:21+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T11:42:24+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=45 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:42:24+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=27 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:42:26+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=30 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:42:28+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=4 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:42:30+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=4 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:42:32+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=29 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:42:34+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=33 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:42:34+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=63 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:42:36+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=6 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:42:38+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=5 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:42:40+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=[::1] time_ms=35 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:47:51+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:47:51+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:47:51+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:47:51+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:47:51+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:47:51+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:47:51+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:47:51+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:47:51+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:47:51+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:47:51+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:47:51+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:47:51+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:47:51+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T11:48:49+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:48:49+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:48:49+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:48:49+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:48:49+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:48:49+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:48:49+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:48:49+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:48:49+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:48:49+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:48:49+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:48:49+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:48:49+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:48:49+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T11:50:57+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:50:57+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:50:57+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:50:57+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:50:57+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:50:57+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:50:57+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:50:57+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:50:57+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:50:57+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:50:57+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:50:57+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:50:57+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:50:57+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T11:50:58+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=127.0.0.1 time_ms=1253 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T11:53:31+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:53:31+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:53:31+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:53:31+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:53:31+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:53:31+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:53:31+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:53:31+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:53:31+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:53:31+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:53:31+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:53:31+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:53:31+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:53:31+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T11:54:13+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:54:13+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:54:13+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:54:13+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:54:13+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:54:13+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:54:13+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:54:13+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:54:13+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:54:13+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:54:13+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:54:13+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:54:13+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:54:13+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T11:56:26+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:56:26+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:56:26+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:56:26+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:56:26+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:56:26+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:56:26+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:56:26+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:56:26+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:56:26+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:56:26+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:56:26+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:56:26+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:56:26+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T11:57:55+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T11:57:55+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T11:57:55+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T11:57:55+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T11:57:55+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T11:57:55+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T11:57:55+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T11:57:55+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T11:57:55+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T11:57:55+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T11:57:55+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T11:57:55+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T11:57:55+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T11:57:55+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T12:01:14+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T12:01:14+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T12:01:14+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T12:01:14+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T12:01:14+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T12:01:14+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T12:01:14+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T12:01:14+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T12:01:14+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T12:01:14+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T12:01:14+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T12:01:14+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T12:01:14+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T12:01:14+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T12:01:14+0200 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/29/query status=502 remote_addr=127.0.0.1 time_ms=657 size=0 referer="http://localhost:8080/d/isislab/cloud-control?panelId=4&edit&fullscreen&orgId=1&refresh=2s"
+t=2019-07-30T12:02:15+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T12:02:15+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T12:02:15+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T12:02:15+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T12:02:15+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T12:02:15+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T12:02:15+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T12:02:15+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T12:02:15+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T12:02:15+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T12:02:15+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T12:02:15+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T12:02:15+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T12:02:15+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T12:02:56+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T12:02:56+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T12:02:56+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T12:02:56+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T12:02:56+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T12:02:56+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T12:02:56+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T12:02:56+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T12:02:56+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T12:02:56+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T12:02:56+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T12:02:56+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T12:02:56+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T12:02:56+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T12:04:38+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T12:04:38+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T12:04:38+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T12:04:38+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T12:04:38+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T12:04:38+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T12:04:38+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T12:04:38+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T12:04:38+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T12:04:38+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T12:04:38+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T12:04:38+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T12:04:38+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T12:04:38+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T12:05:00+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T12:05:00+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T12:05:00+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T12:05:00+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T12:05:00+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T12:05:00+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T12:05:00+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T12:05:00+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T12:05:00+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T12:05:00+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T12:05:00+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T12:05:00+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T12:05:00+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T12:05:00+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=
+t=2019-07-30T12:12:16+0200 lvl=info msg="Starting Grafana" logger=server version=6.2.5 commit=6082d19 branch=HEAD compiled=2019-06-25T19:56:19+0200
+t=2019-07-30T12:12:16+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows/conf/defaults.ini
+t=2019-07-30T12:12:16+0200 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\custom.ini
+t=2019-07-30T12:12:16+0200 lvl=info msg="Path Home" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows
+t=2019-07-30T12:12:16+0200 lvl=info msg="Path Data" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data
+t=2019-07-30T12:12:16+0200 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\log
+t=2019-07-30T12:12:16+0200 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\data\\plugins
+t=2019-07-30T12:12:16+0200 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\davaca\\Desktop\\git\\grafana-backend-monitor\\grafana-app\\grafana-windows\\conf\\provisioning
+t=2019-07-30T12:12:16+0200 lvl=info msg="App mode production" logger=settings
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing SqlStore" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2019-07-30T12:12:16+0200 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing HTTPServer" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing RemoteCache" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing QuotaService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing LoginService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing PluginManager" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-07-30T12:12:16+0200 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2019-07-30T12:12:16+0200 lvl=info msg="Registering plugin" logger=plugins name=JSON
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing RenderingService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing AlertingService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing DatasourceCacheService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing HooksService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing SearchService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing ServerLockService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing TracingService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing UsageStatsService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing UserAuthTokenService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing CleanUpService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing NotificationService" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing provisioningServiceImpl" logger=server
+t=2019-07-30T12:12:16+0200 lvl=info msg="Initializing Stream Manager"
+t=2019-07-30T12:12:16+0200 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:8080 protocol=http subUrl= socket=

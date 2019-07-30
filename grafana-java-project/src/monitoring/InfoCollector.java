@@ -14,7 +14,7 @@ public class InfoCollector implements Runnable{
 
 	static {
 		//Inizializzo l'HashMap con le metriche supportate attualmente dal programma.
-		//La chiave dell'HashMap è la metrica stessas
+		//La chiave dell'HashMap è la metrica stessa
 		metricsMap.put(Metric.CPU, new ArrayList<GrafanaTimeseriePoint>());
 		metricsMap.put(Metric.MEMORY, new ArrayList<GrafanaTimeseriePoint>());
 	}
