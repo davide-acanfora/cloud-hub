@@ -43,8 +43,8 @@ public class DashboardProvider implements Configurable{
 
 	@Override
 	public void createConfig(String grafanaPath) {
-		String fullpath = grafanaPath + "\\conf\\provisioning\\dashboards";
-		file = new File(fullpath+"\\"+getProviderName()+".yaml");
+		String fullpath = grafanaPath + "/conf/provisioning/dashboards";
+		file = new File(fullpath+"/"+getProviderName()+".yaml");
 		String toFile = "apiVersion: 1\n"
 				+ "providers:\n"
 				+ " - name: " + getProviderName() + "\n"
@@ -52,7 +52,7 @@ public class DashboardProvider implements Configurable{
 				+ "   type: file\n"
 				+ "   editable: " + isEditable() + "\n"
 				+ "   options:\n"
-				+ "      path: ..\\conf\\provisioning\\dashboards";
+				+ "      path: ../conf/provisioning/dashboards";
 		
 		Writer writer = null;
 		try{

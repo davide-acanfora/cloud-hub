@@ -42,7 +42,7 @@ public class JSONDataSource extends AbstractDataSource{
 
 	@Override
 	public void createConfig(String grafanaPath) {
-		file = new File(grafanaPath+"\\conf\\provisioning\\datasources\\"+getName()+".yaml");
+		file = new File(grafanaPath+"/conf/provisioning/datasources/"+getName()+".yaml");
 		String toFile = "apiVersion: 1\n"
 				+ "datasources:\n"
 				+ " - name: " + getName() + "\n"

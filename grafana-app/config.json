@@ -1,5 +1,5 @@
 {
-	"grafana-path":"grafana-windows",
+	"grafana-path":"grafana-linux",
 	
 	"grafana-port":8080,
 	"api-server-port":8081,

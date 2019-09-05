@@ -28,10 +28,11 @@ public class Run {
 		dashboardConfig.createConfig(Config.GrafanaPath);
 		configurables.add(dashboardConfig);
 		
-		String command = Config.GrafanaPath + "\\bin\\grafana-server.exe";
+		String command = "./grafana-server";
+		//String[] array = {command, "--homepath", Config.GrafanaPath};
 		ProcessBuilder pb = new ProcessBuilder(command);
 		pb.redirectErrorStream(true);	
-	    pb.directory(new File(Config.GrafanaPath + "\\bin"));
+	    pb.directory(new File(Config.GrafanaPath + "/bin"));
 	    Process grafana = pb.start();
 	    
 	    Runtime.getRuntime().addShutdownHook(new Thread() {

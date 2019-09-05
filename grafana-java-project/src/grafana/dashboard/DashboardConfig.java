@@ -23,9 +23,9 @@ public class DashboardConfig implements Configurable{
 	@Override
 	public void createConfig(String grafanaPath) {
 		try {
-			String dashboard = new String(Files.readAllBytes(Paths.get(grafanaPath+"\\conf\\provisioning\\dashboards\\dashboard.template")));
+			String dashboard = new String(Files.readAllBytes(Paths.get(grafanaPath+"/conf/provisioning/dashboards/dashboard.template")));
 			dashboard = dashboard.replaceAll("\\$json-datasource-name", Config.JSONDataSourceName);
-			file = new File(grafanaPath+"\\conf\\provisioning\\dashboards\\dashboard.json");
+			file = new File(grafanaPath+"/conf/provisioning/dashboards/dashboard.json");
 			Writer writer = null;
 			
 			try{
