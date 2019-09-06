@@ -12,25 +12,21 @@ public class Test {
 	public static void main(String[] args) throws InterruptedException {
 		InputStream input = Test.class.getResourceAsStream("/server/server.zip");
 		String destination = System.getProperty("java.io.tmpdir");
-		copy(input, destination+"/server.zip");
+		
+		try {
+            Files.copy(input, Paths.get(destination+"/server.zip"), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ex) {
+        	return;
+        }
+		
 		try {
 			ZipFile zip = new ZipFile(destination+"/server.zip");
 			zip.extractAll(destination);
+			Files.deleteIfExists(Paths.get(destination+"/server.zip"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		return;
 	}
-
-	public static boolean copy(InputStream source , String destination) {
-        boolean ok = true;
-
-        try {
-            Files.copy(source, Paths.get(destination), StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException ex) {
-        	ok = false;
-        }
-
-        return ok;
-
-    }
 }

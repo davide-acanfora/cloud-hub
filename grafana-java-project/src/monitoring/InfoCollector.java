@@ -2,21 +2,23 @@ package monitoring;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import config.Config;
 import grafana.misc.GrafanaTimeseriePoint;
 
 public class InfoCollector implements Runnable{
 	//HashMap che mantiene e i suoi rispettivi Point, accessibile tramite nome della metrica
 	public static HashMap<Metric, ArrayList<GrafanaTimeseriePoint>> metricsMap = new HashMap<Metric, ArrayList<GrafanaTimeseriePoint>>();
 	//Delay del thread che colleziona i punti delle metriche
-	private final int delay = Config.CollectorDelay;
+	private int delay;
 
 	static {
 		//Inizializzo l'HashMap con le metriche supportate attualmente dal programma.
-		//La chiave dell'HashMap è la metrica stessa
-		metricsMap.put(Metric.CPU, new ArrayList<GrafanaTimeseriePoint>());
-		metricsMap.put(Metric.MEMORY, new ArrayList<GrafanaTimeseriePoint>());
+		//La chiave dell'HashMap ï¿½ la metrica stessa
+		for (Metric metric : Metric.values())
+			metricsMap.put(metric, new ArrayList<GrafanaTimeseriePoint>());
+	}
+	
+	public InfoCollector(int delay) {
+		this.delay = delay;
 	}
 	
 	//Thread che colleziona i punti

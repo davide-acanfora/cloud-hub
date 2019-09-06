@@ -9,22 +9,21 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
-import config.Config;
 import grafana.Configurable;
 
 public class DashboardConfig implements Configurable{
 	private File file;
+	private String dataSourceName;	
 	
-	public DashboardConfig() {
-		
+	public DashboardConfig(String dataSourceName) {
+		this.dataSourceName = dataSourceName;
 	}
 
 	@Override
 	public void createConfig(String grafanaPath) {
 		try {
 			String dashboard = new String(Files.readAllBytes(Paths.get(grafanaPath+"/conf/provisioning/dashboards/dashboard.template")));
-			dashboard = dashboard.replaceAll("\\$json-datasource-name", Config.JSONDataSourceName);
+			dashboard = dashboard.replaceAll("\\$json-datasource-name", this.dataSourceName);
 			file = new File(grafanaPath+"/conf/provisioning/dashboards/dashboard.json");
 			Writer writer = null;
 			

@@ -2,5 +2,6 @@ package monitoring;
 
 public enum Metric {
 	CPU,
-	MEMORY
+	CPU_TEMPERATURE,
+	MEMORY	
 }

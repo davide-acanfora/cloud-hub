@@ -15,11 +15,10 @@ import com.sun.net.httpserver.HttpServer;
 
 import grafana.misc.GrafanaTimeseriePoint;
 
-
 //Classe per fornire a Grafana l'API per monitorare il sistema locale
 public class LocalMonitoringWebServer implements Runnable{
-	
 	private int port;
+	private int collectorDelay;
 	private static String searchString = buildSearchStringFromMetrics();
 	
 	private static String buildSearchStringFromMetrics() {
@@ -30,17 +29,17 @@ public class LocalMonitoringWebServer implements Runnable{
 		JSONArray array = new JSONArray();
 		
 		//Per ogni metrica supportata dal programma
-		for (Metric metrica : Metric.values()) {
+		for (Metric metrica : Metric.values()) 
 			//Inserisco il suo nome all'interno dell'array
 			array.put(metrica.name());
-		}
 		
 		return array.toString();
 	}
 	
 	//Costruttore della classe che permette di parametrizzarla con la porta su cui ricevere le richieste di Grafana
-	public LocalMonitoringWebServer(int port) {
+	public LocalMonitoringWebServer(int port, int collectorDelay) {
 		this.port = port;
+		this.collectorDelay = collectorDelay;
 	}
 	
 	public void run() {
@@ -70,7 +69,7 @@ public class LocalMonitoringWebServer implements Runnable{
 		});
 		
 		//Avvio il thread che colleziona i punti del grafo
-		Thread collector = new Thread(new InfoCollector());
+		Thread collector = new Thread(new InfoCollector(this.collectorDelay));
 		collector.start();
 
 		server.start();
@@ -96,7 +95,6 @@ public class LocalMonitoringWebServer implements Runnable{
 		}
 	}
 	
-	
 	//Classe per rispondere alle richieste all'indirizzo /query
 	public class RequestQuery implements HttpHandler{
 		@Override
@@ -113,15 +111,13 @@ public class LocalMonitoringWebServer implements Runnable{
 		    }
 		    
 			//System.out.println("Request: "+body.toString());
-			
-		    
-		    //JSONArray che conterrà la risposta da dover mandare a Grafana
+			 
+		    //JSONArray che conterrï¿½ la risposta da dover mandare a Grafana
 		    //L'array deve essere composto da: 
 		    //1) un JSONObject contenente la key "target" corrispondente al suo nome
 		    //2) un JSONArray di coppie valore-unixtimestamp nella chiave "datapoints"
 			JSONArray response = new JSONArray();
-			
-			
+						
 			try {
 				//Il corpo della richiesta in formato String lo converto nel JSON corrispondente
 				JSONObject request = new JSONObject(body.toString());
@@ -137,22 +133,21 @@ public class LocalMonitoringWebServer implements Runnable{
 					//Ottengo la metrica dal suo nome contenuto nel JSON
 					Metric metrica;
 					try {
-						//Il nome è contenuto nella key "target" dell'oggetto JSON (target) corrente
+						//Il nome ï¿½ contenuto nella key "target" dell'oggetto JSON (target) corrente
 						metrica = Metric.valueOf(target.getString("target").toUpperCase());
 					} catch (UnsupportedMetricException e) {
-						//Può succedere se da Grafana viene inserito un nome di una metrica inesistente
+						//Puï¿½ succedere se da Grafana viene inserito un nome di una metrica inesistente
 						break;
 					}
 					
-					//Se ho già collezionato almeno un punto della metrica richiesta, allora la inserisco nella risposta
+					//Se ho giï¿½ collezionato almeno un punto della metrica richiesta, allora la inserisco nella risposta
 					if (!InfoCollector.metricsMap.get(metrica).isEmpty())
 						//Converto i suoi punti in un oggetto JSON e lo accodo alla response
 						response.put(getMetricPointsToTargetJSON(metrica));
-
 				}
 				
 			} catch (JSONException e) {
-				//Può succedere se Grafana costruisce una richiesta malformata (raro)
+				//Puï¿½ succedere se Grafana costruisce una richiesta malformata (raro)
 				e.printStackTrace();
 				System.exit(-1);
 				
@@ -160,10 +155,8 @@ public class LocalMonitoringWebServer implements Runnable{
 				//response = new JsonArray();
 			}
 			
-			
 			//System.out.println("Response: "+response.toString());
-		
-			
+	
 			t.sendResponseHeaders(200, response.toString().length());
 			OutputStream os = t.getResponseBody();
 			os.write(response.toString().getBytes());
