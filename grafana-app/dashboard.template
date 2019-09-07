@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
   "links": [],
   "panels": [
     {
@@ -29,8 +28,9 @@
       "datasource": "$json-datasource-name",
       "decimals": 0,
       "fill": 3,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 10,
+        "h": 12,
         "w": 10,
         "x": 0,
         "y": 0
@@ -52,7 +52,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {},
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -122,8 +124,8 @@
       "cacheTimeout": null,
       "datasource": "$json-datasource-name",
       "gridPos": {
-        "h": 5,
-        "w": 2,
+        "h": 4,
+        "w": 3,
         "x": 10,
         "y": 0
       },
@@ -136,43 +138,40 @@
           ],
           "defaults": {
             "decimals": 0,
+            "mappings": [],
             "max": 100,
             "min": 0,
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ],
             "title": "",
             "unit": "percent"
           },
-          "mappings": [],
           "override": {},
-          "thresholds": [
-            {
-              "color": "green",
-              "index": 0,
-              "value": null
-            },
-            {
-              "color": "orange",
-              "index": 1,
-              "value": 70
-            },
-            {
-              "color": "red",
-              "index": 2,
-              "value": 90
-            }
-          ],
           "values": false
         },
         "orientation": "auto",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.2.5",
+      "pluginVersion": "6.3.5",
       "targets": [
         {
           "data": "",
           "hide": false,
           "refId": "A",
-          "target": "cpu",
+          "target": "CPU",
           "type": "timeseries"
         }
       ],
@@ -184,10 +183,10 @@
     {
       "datasource": "$json-datasource-name",
       "gridPos": {
-        "h": 5,
-        "w": 2,
+        "h": 4,
+        "w": 3,
         "x": 10,
-        "y": 5
+        "y": 4
       },
       "id": 5,
       "links": [],
@@ -198,42 +197,39 @@
           ],
           "defaults": {
             "decimals": 0,
+            "mappings": [],
             "max": 100,
             "min": 0,
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ],
             "unit": "percent"
           },
-          "mappings": [],
           "override": {},
-          "thresholds": [
-            {
-              "color": "green",
-              "index": 0,
-              "value": null
-            },
-            {
-              "color": "orange",
-              "index": 1,
-              "value": 80
-            },
-            {
-              "color": "red",
-              "index": 2,
-              "value": 90
-            }
-          ],
           "values": false
         },
         "orientation": "auto",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.2.5",
+      "pluginVersion": "6.3.5",
       "targets": [
         {
           "data": "",
           "hide": false,
           "refId": "A",
-          "target": "memory",
+          "target": "MEMORY",
           "type": "timeseries"
         }
       ],
@@ -241,10 +237,70 @@
       "timeShift": null,
       "title": "Memory Usage",
       "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "$json-datasource-name",
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 10,
+        "y": 8
+      },
+      "id": 6,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "decimals": 0,
+            "mappings": [],
+            "max": 100,
+            "min": 0,
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ],
+            "title": "",
+            "unit": "celsius"
+          },
+          "override": {},
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.3.5",
+      "targets": [
+        {
+          "data": "",
+          "hide": false,
+          "refId": "A",
+          "target": "CPU_TEMPERATURE",
+          "type": "timeseries"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CPU Temperature",
+      "type": "gauge"
     }
   ],
   "refresh": "2s",
-  "schemaVersion": 18,
+  "schemaVersion": 19,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -285,5 +341,5 @@
   "timezone": "",
   "title": "Cloud Control",
   "uid": "isislab",
-  "version": 2
+  "version": 1
 }
