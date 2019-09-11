@@ -26,6 +26,7 @@ public class Grafana {
 	private static String folderPath;
 	private final static String serverName = "server.zip";
 	
+	//Costruttore
 	public Grafana(int httpPort, int apiPort, String jsonDataSourceName, String dashboardProviderName, int collectorDelay) {
 		this.httpPort = httpPort;
 		this.apiPort = apiPort; 
@@ -34,29 +35,26 @@ public class Grafana {
 		this.collectorDelay = collectorDelay; 
 	}
 	
+	//Metodo che avvia il server facendone prima il deploy
 	public void start() throws IOException {
+		
 		System.out.println("Inizializzazione server Grafana...");
 		if (!deployServer()) {
 			System.out.println("Errore di inizializzazione - impossibile eseguire il deploy di Grafana");
 			System.exit(-1);
 		}
 		
-		//ArrayList<Configurable> configurables = new ArrayList<Configurable>();
-		
 		Conf conf = new Conf(this.httpPort);
 		conf.createConfig(folderPath);
 		
 		JSONDataSource dataSource = new JSONDataSource(this.jsonDataSourceName, "http://localhost:"+this.apiPort, JSONDataSource.SERVER);
 		dataSource.createConfig(folderPath);
-		//configurables.add(dataSource);
 		
 		DashboardProvider dashboardProvider = new DashboardProvider(this.dashboardProviderName);
 		dashboardProvider.createConfig(folderPath);
-		//configurables.add(dashboardProvider);
 		
 		DashboardConfig dashboardConfig = new DashboardConfig(this.jsonDataSourceName);
 		dashboardConfig.createConfig(folderPath);
-		//configurables.add(dashboardConfig);
 		
 		//Avvio dell'eseguibile di Grafana
 		String command = "./grafana-server";
@@ -119,7 +117,7 @@ public class Grafana {
 		return true;
 	}
 	
-	public static void deleteFile(File element) {
+	private static void deleteFile(File element) {
 	    if (element.isDirectory()) {
 	        for (File sub : element.listFiles()) {
 	            deleteFile(sub);
