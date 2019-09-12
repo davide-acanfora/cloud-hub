@@ -16,7 +16,8 @@ import com.sun.net.httpserver.HttpServer;
 import grafana.misc.GrafanaTimeseriePoint;
 
 //Classe per fornire a Grafana l'API per monitorare il sistema locale
-public class LocalMonitoringWebServer implements Runnable{
+public class LocalMonitoringWebServer{
+	private HttpServer apiServer;
 	private int port;
 	private int collectorDelay;
 	private static String searchString = buildSearchStringFromMetrics();
@@ -42,7 +43,7 @@ public class LocalMonitoringWebServer implements Runnable{
 		this.collectorDelay = collectorDelay;
 	}
 	
-	public void run() {
+	public void start() {
 		try {
 			runServer(port);
 		} catch (IOException e) {
@@ -52,27 +53,20 @@ public class LocalMonitoringWebServer implements Runnable{
 	
 	//
 	public void runServer(int port) throws IOException {
-		HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-		server.createContext("/", new RequestOk());
-		server.createContext("/query", new RequestQuery());
-		server.createContext("/search", new RequestSearch());
+		this.apiServer = HttpServer.create(new InetSocketAddress(port), 0);
+		this.apiServer.createContext("/", new RequestOk());
+		this.apiServer.createContext("/query", new RequestQuery());
+		this.apiServer.createContext("/search", new RequestSearch());
 		//server.createContext("/annotations", new RequestAnnotation());
 		//server.createContext("/tag-keys", new RequestTagKeys());
 		//server.createContext("/tag-values", new RequestTagValues());
-		server.setExecutor(null);
-		
-		Runtime.getRuntime().addShutdownHook(new Thread() {
-			public void run() {
-				System.out.println("Stopping Web Server...");
-				server.stop(0);
-			}
-		});
+		this.apiServer.setExecutor(null);
 		
 		//Avvio il thread che colleziona i punti del grafo
 		Thread collector = new Thread(new InfoCollector(this.collectorDelay));
 		collector.start();
 
-		server.start();
+		this.apiServer.start();
 	}
 	
 	public class RequestOk implements HttpHandler{
@@ -190,6 +184,10 @@ public class LocalMonitoringWebServer implements Runnable{
 			targetResponse.put("datapoints", pointsArray);
 			return targetResponse;
 		}
+	}
+	
+	public void stop() {
+		this.apiServer.stop(0);
 	}
 
 }

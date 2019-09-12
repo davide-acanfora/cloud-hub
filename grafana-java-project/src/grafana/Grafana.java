@@ -9,8 +9,8 @@ import java.nio.file.StandardCopyOption;
 //import java.util.ArrayList;
 
 import grafana.conf.Conf;
-import grafana.dashboard.DashboardConfig;
-import grafana.dashboard.DashboardProvider;
+import grafana.dashboard.LocalDashboard;
+import grafana.datasource.CloudWatchDataSource;
 import grafana.datasource.JSONDataSource;
 import monitoring.LocalMonitoringWebServer;
 import net.lingala.zip4j.ZipFile;
@@ -19,42 +19,32 @@ import test.Test;
 //Classe che rappresenta il server di Grafana
 public class Grafana {
 	private int httpPort = 3000; //Porta su cui ascolta la console di Grafana
-	private int apiPort; //Porta su cui ascolta il server che fornisce l'API 
-	private String jsonDataSourceName; //Nome del datasource di Grafana da utilizzare
-	private String dashboardProviderName; //Nome della dashboard di Grafana da utilizzare
-	private int collectorDelay; //Delay del thread che raccoglie le informazioni del sistema
-	private static String folderPath;
+	private String folderPath;
+	private boolean consoleLog;	
 	private final static String serverName = "server.zip";
 	
-	//Costruttore
-	public Grafana(int httpPort, int apiPort, String jsonDataSourceName, String dashboardProviderName, int collectorDelay) {
-		this.httpPort = httpPort;
-		this.apiPort = apiPort; 
-		this.jsonDataSourceName = jsonDataSourceName; 
-		this.dashboardProviderName = dashboardProviderName; 
-		this.collectorDelay = collectorDelay; 
-	}
+	private LocalDashboard localDashboard;
+	private LocalMonitoringWebServer localWebServer;
 	
-	//Metodo che avvia il server facendone prima il deploy
-	public void start() throws IOException {
+	//Costruttore
+	public Grafana(int httpPort, boolean consoleLog) {
+		this.httpPort = httpPort;
+		this.consoleLog = consoleLog;
+		this.folderPath = System.getProperty("java.io.tmpdir")+"/grafana";
 		
-		System.out.println("Inizializzazione server Grafana...");
-		if (!deployServer()) {
+		System.out.println("Deploy server Grafana...");
+		if (!this.deployServerFolder()) {
 			System.out.println("Errore di inizializzazione - impossibile eseguire il deploy di Grafana");
 			System.exit(-1);
 		}
 		
 		Conf conf = new Conf(this.httpPort);
-		conf.createConfig(folderPath);
-		
-		JSONDataSource dataSource = new JSONDataSource(this.jsonDataSourceName, "http://localhost:"+this.apiPort, JSONDataSource.SERVER);
-		dataSource.createConfig(folderPath);
-		
-		DashboardProvider dashboardProvider = new DashboardProvider(this.dashboardProviderName);
-		dashboardProvider.createConfig(folderPath);
-		
-		DashboardConfig dashboardConfig = new DashboardConfig(this.jsonDataSourceName);
-		dashboardConfig.createConfig(folderPath);
+		conf.createConfig(this.folderPath);
+	}
+	
+	//Metodo che avvia il server facendone prima il deploy
+	public void start() throws IOException {
+		System.out.println("Avvio server Grafana...");
 		
 		//Avvio dell'eseguibile di Grafana
 		String command = "./grafana-server";
@@ -68,9 +58,6 @@ public class Grafana {
 				System.out.println("Stopping Grafana...");
 				grafana.destroy();
 				System.out.println("Cleaning up server files...");
-				//for (Configurable configurable : configurables)
-					//configurable.deleteConfig();
-				
 				try {
 					Grafana.deleteFile(new File(folderPath));
 				}catch (Exception ex) {
@@ -79,15 +66,15 @@ public class Grafana {
 			}
 		});
 	    
-	    Thread grafanaOutputPrinter = new Thread(new GrafanaOutputPrinter(grafana));
-	    grafanaOutputPrinter.start();
-	    Thread localWebServer = new Thread(new LocalMonitoringWebServer(this.apiPort, this.collectorDelay));
-	    localWebServer.start();
+	    System.out.println("Grafana in ascolto all'indirizzo http://localhost:" + this.httpPort);
 	    
-	    System.out.println("Grafana in ascolto all'indirizzo http://localhost:" + this.httpPort + "/d/isislab?refresh=2s");
+	    if(consoleLog) {
+		    Thread grafanaOutputPrinter = new Thread(new GrafanaOutputPrinter(grafana));
+		    grafanaOutputPrinter.start();
+	    }
 	}
 	
-	private boolean deployServer() {
+	private boolean deployServerFolder() {
 		//Ottengo l'archivio dei file server di Grafana posto all'interno dell'eseguibile Java
 		InputStream input = Test.class.getResourceAsStream("/server/"+serverName);
 		//Imposto come destinazione dello scompattamento la cartella dei file temporanei di sistema
@@ -105,9 +92,7 @@ public class Grafana {
 			ZipFile zip = new ZipFile(destination+"/"+serverName);
 			zip.extractAll(destination);
 			//Cancello l'archivio ormai inutile
-			Files.deleteIfExists(Paths.get(destination+"/"+serverName));
-			//I file di Grafana sono ora contenuti nel seguente percorso
-			folderPath = destination+"/grafana";
+			Files.deleteIfExists(Paths.get(destination+"/"+serverName));			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -124,6 +109,27 @@ public class Grafana {
 	        }
 	    }
 	    element.delete();
+	}
+	
+	public void enableLocalMonitoring(int apiPort, int collectorDelay) {
+		JSONDataSource jsonDataSource = new JSONDataSource("JSONDataSource", "http://localhost:"+apiPort, JSONDataSource.SERVER);
+		jsonDataSource.createConfig(this.folderPath);
+		
+		this.localDashboard = new LocalDashboard(jsonDataSource);
+		this.localDashboard.createConfig(this.folderPath);
+		
+		this.localWebServer = new LocalMonitoringWebServer(apiPort, collectorDelay);
+	    this.localWebServer.start();
+	}
+	
+	public void disableLocalMonitoring() {
+		this.localDashboard.deleteConfig();
+		this.localWebServer.stop();
+	}
+	
+	public void enableCloudWatchMonitoring(String accessKey, String secretKey, String defaultRegion) {
+		CloudWatchDataSource cloudWatchDataSource = new CloudWatchDataSource("CloudWatch", accessKey, secretKey, defaultRegion);
+		cloudWatchDataSource.createConfig(this.folderPath);
 	}
 
 }

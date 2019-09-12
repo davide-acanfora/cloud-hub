@@ -11,6 +11,9 @@ import java.io.Writer;
 public class JSONDataSource extends AbstractDataSource{
 	private String url;
 	private File file;
+	private String access;
+	private long version;
+	private boolean editable;
 	public static final String SERVER = "proxy";
 	public static final String BROWSER = "direct";
 	
@@ -38,6 +41,30 @@ public class JSONDataSource extends AbstractDataSource{
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	
+	public String getAccess() {
+		return access;
+	}
+	
+	public void setAccess(String access) {
+		this.access = access;
+	}
+
+	public long getVersion() {
+		return version;
+	}
+
+	public void setVersion(long version) {
+		this.version = version;
+	}
+
+	public boolean isEditable() {
+		return editable;
+	}
+
+	public void setEditable(boolean editable) {
+		this.editable = editable;
 	}
 
 	@Override
