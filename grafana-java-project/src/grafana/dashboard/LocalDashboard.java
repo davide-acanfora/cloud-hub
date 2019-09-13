@@ -25,7 +25,7 @@ public class LocalDashboard implements Configurable{
 		try {
 			String dashboard = new String(Files.readAllBytes(Paths.get(grafanaPath+"/conf/provisioning/dashboards/localdashboard.template")));
 			dashboard = dashboard.replaceAll("\\$json-datasource-name", jsonDataSource.getName());
-			file = new File(grafanaPath+"/conf/provisioning/dashboards/dashboard.json");
+			file = new File(grafanaPath+"/conf/provisioning/dashboards/localdashboard.json");
 			Writer writer = null;
 			
 			try{

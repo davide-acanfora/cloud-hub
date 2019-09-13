@@ -9,6 +9,7 @@ import java.nio.file.StandardCopyOption;
 //import java.util.ArrayList;
 
 import grafana.conf.Conf;
+import grafana.dashboard.AWSDashboard;
 import grafana.dashboard.LocalDashboard;
 import grafana.datasource.CloudWatchDataSource;
 import grafana.datasource.JSONDataSource;
@@ -25,6 +26,8 @@ public class Grafana {
 	
 	private LocalDashboard localDashboard;
 	private LocalMonitoringWebServer localWebServer;
+	
+	private AWSDashboard awsDashboard;
 	
 	//Costruttore
 	public Grafana(int httpPort, boolean consoleLog) {
@@ -72,6 +75,12 @@ public class Grafana {
 		    Thread grafanaOutputPrinter = new Thread(new GrafanaOutputPrinter(grafana));
 		    grafanaOutputPrinter.start();
 	    }
+	    
+	    try {
+			grafana.waitFor();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private boolean deployServerFolder() {
@@ -130,6 +139,9 @@ public class Grafana {
 	public void enableCloudWatchMonitoring(String accessKey, String secretKey, String defaultRegion) {
 		CloudWatchDataSource cloudWatchDataSource = new CloudWatchDataSource("CloudWatch", accessKey, secretKey, defaultRegion);
 		cloudWatchDataSource.createConfig(this.folderPath);
+		
+		this.awsDashboard = new AWSDashboard(cloudWatchDataSource);
+		this.awsDashboard.createConfig(this.folderPath);
 	}
 
 }
