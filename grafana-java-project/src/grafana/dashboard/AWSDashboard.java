@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import grafana.Configurable;
 import grafana.datasource.CloudWatchDataSource;
@@ -16,9 +17,11 @@ import grafana.datasource.CloudWatchDataSource;
 public class AWSDashboard implements Configurable{
 	private File file;
 	private CloudWatchDataSource cloudWatchDataSource;
+	private ArrayList<String> functions;
 	
 	public AWSDashboard(CloudWatchDataSource cloudWatchDataSource) {
 		this.cloudWatchDataSource = cloudWatchDataSource;
+		this.functions = new ArrayList<String>();
 	}
 
 	@Override
@@ -28,6 +31,16 @@ public class AWSDashboard implements Configurable{
 			
 			dashboard = dashboard.replaceAll("\\$cloudwatch-datasource-name", cloudWatchDataSource.getName());
 			dashboard = dashboard.replaceAll("\\$cloudwatch-default-region", cloudWatchDataSource.getDefaultRegion());
+			if (functions.isEmpty()) 
+				dashboard = dashboard.replaceAll("\\$functionname-regex", "");
+			else {
+				String regex = "";
+				int i;
+				for (i=0; i<functions.size()-1; i++)
+					regex += functions.get(i) + "|";
+				regex += functions.get(i);
+				dashboard = dashboard.replaceAll("\\$functionname-regex", regex);
+			}	
 			
 			file = new File(grafanaPath+"/conf/provisioning/dashboards/awsdashboard.json");
 			Writer writer = null;
@@ -56,6 +69,10 @@ public class AWSDashboard implements Configurable{
 	public void deleteConfig() {
 		file.delete();
 		cloudWatchDataSource.deleteConfig();
+	}
+	
+	public void addFunction(String funcionName) {
+		this.functions.add(funcionName);
 	}
 
 	

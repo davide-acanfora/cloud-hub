@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 //import java.util.ArrayList;
+import java.util.ArrayList;
 
 import grafana.conf.Conf;
 import grafana.dashboard.AWSDashboard;
@@ -19,6 +20,7 @@ import test.Test;
 
 //Classe che rappresenta il server di Grafana
 public class Grafana {
+	private Process grafana;
 	private int httpPort = 3000; //Porta su cui ascolta la console di Grafana
 	private String folderPath;
 	private boolean consoleLog;	
@@ -28,7 +30,7 @@ public class Grafana {
 	private LocalMonitoringWebServer localWebServer;
 	
 	private AWSDashboard awsDashboard;
-	
+
 	//Costruttore
 	public Grafana(int httpPort, boolean consoleLog) {
 		this.httpPort = httpPort;
@@ -54,7 +56,7 @@ public class Grafana {
 		ProcessBuilder pb = new ProcessBuilder(command);
 		pb.redirectErrorStream(true);	
 	    pb.directory(new File(folderPath + "/bin"));
-	    Process grafana = pb.start();
+	    grafana = pb.start();
 	    
 	    Runtime.getRuntime().addShutdownHook(new Thread() {
 			public void run() {
@@ -76,11 +78,6 @@ public class Grafana {
 		    grafanaOutputPrinter.start();
 	    }
 	    
-	    try {
-			grafana.waitFor();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	private boolean deployServerFolder() {
@@ -120,6 +117,10 @@ public class Grafana {
 	    element.delete();
 	}
 	
+	public void keepRunning() throws InterruptedException {
+		this.grafana.waitFor();
+	}
+	
 	public void enableLocalMonitoring(int apiPort, int collectorDelay) {
 		JSONDataSource jsonDataSource = new JSONDataSource("JSONDataSource", "http://localhost:"+apiPort, JSONDataSource.SERVER);
 		jsonDataSource.createConfig(this.folderPath);
@@ -141,6 +142,17 @@ public class Grafana {
 		cloudWatchDataSource.createConfig(this.folderPath);
 		
 		this.awsDashboard = new AWSDashboard(cloudWatchDataSource);
+		this.awsDashboard.createConfig(this.folderPath);
+	}
+	
+	public void addAWSFunction(String functionName) {
+		this.awsDashboard.addFunction(functionName);
+		this.awsDashboard.createConfig(this.folderPath);
+	}
+	
+	public void addAWSFunction(ArrayList<String> functions) {
+		for (String function : functions)
+			this.awsDashboard.addFunction(function);
 		this.awsDashboard.createConfig(this.folderPath);
 	}
 
