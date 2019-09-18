@@ -16,157 +16,12 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 2,
-  "iteration": 1568796449055,
+  "iteration": 1568808809740,
   "links": [],
   "panels": [
     {
-      "aliasColors": {},
-      "bars": true,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Azure Monitor",
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 0
-      },
-      "id": 4,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": false,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "appInsights": {
-            "aggOptions": [
-              "avg",
-              "min",
-              "max",
-              "sum",
-              "count",
-              "unique"
-            ],
-            "aggregation": "sum",
-            "groupBy": "none",
-            "groupByOptions": [
-              "operation/name",
-              "operation/synthetic",
-              "operation/syntheticSource",
-              "user/authenticated",
-              "application/version",
-              "client/type",
-              "client/model",
-              "client/os",
-              "client/city",
-              "client/stateOrProvince",
-              "client/countryOrRegion",
-              "client/browser",
-              "cloud/roleName",
-              "cloud/roleInstance",
-              "customDimensions/appSrv_wsStamp",
-              "customDimensions/appSrv_wsOwner",
-              "customDimensions/processSessionId",
-              "customDimensions/baseSdkTargetFramework",
-              "customDimensions/appSrv_ResourceGroup",
-              "customDimensions/appSrv_SlotName",
-              "customDimensions/runtimeFramework",
-              "customDimensions/appSrv_SiteName",
-              "customDimensions/appSrv_wsHost",
-              "customDimensions/osType",
-              "customDimensions/HostInstanceId",
-              "customDimensions/Category",
-              "customDimensions/LogLevel"
-            ],
-            "metricName": "customMetrics/grafanaTestBello Count",
-            "rawQuery": false,
-            "rawQueryString": "",
-            "spliton": "",
-            "timeGrainType": "auto",
-            "xaxis": "timestamp",
-            "yaxis": ""
-          },
-          "azureLogAnalytics": {
-            "query": "//change this example to create your own time series query\n<table name>                                                              //the table to query (e.g. Usage, Heartbeat, Perf)\n| where $__timeFilter(TimeGenerated)                                      //this is a macro used to show the full chart’s time range, choose the datetime column here\n| summarize count() by <group by column>, bin(TimeGenerated, $__interval) //change “group by column” to a column in your table, such as “Computer”. The $__interval macro is used to auto-select the time grain. Can also use 1h, 5m etc.\n| order by TimeGenerated asc",
-            "resultFormat": "time_series"
-          },
-          "azureMonitor": {
-            "dimensionFilter": "*",
-            "metricDefinition": "select",
-            "metricName": "select",
-            "resourceGroup": "select",
-            "resourceName": "select",
-            "timeGrain": "auto"
-          },
-          "queryType": "Application Insights",
-          "refId": "A",
-          "subscription": "3231ca87-29a8-4713-8ce4-05a6765cddf8"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Panel Title",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
       "aliasColors": {
+        "Average Duration": "blue",
         "Max Duration": "red",
         "Min Duration": "green",
         "customMetrics/grafanaTestBello MaxDurationMs": "red",
@@ -184,17 +39,19 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 8
+        "y": 0
       },
       "id": 2,
       "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
         "show": true,
-        "total": false,
-        "values": false
+        "total": true,
+        "values": true
       },
       "lines": false,
       "linewidth": 1,
@@ -223,7 +80,7 @@
               "count",
               "unique"
             ],
-            "aggregation": "max",
+            "aggregation": "sum",
             "alias": "Max Duration",
             "groupBy": "operation/name",
             "groupByOptions": [
@@ -241,8 +98,8 @@
               "client/browser",
               "cloud/roleName",
               "cloud/roleInstance",
-              "customDimensions/appSrv_wsStamp",
               "customDimensions/appSrv_wsOwner",
+              "customDimensions/appSrv_wsStamp",
               "customDimensions/processSessionId",
               "customDimensions/baseSdkTargetFramework",
               "customDimensions/appSrv_ResourceGroup",
@@ -255,7 +112,7 @@
               "customDimensions/Category",
               "customDimensions/LogLevel"
             ],
-            "metricName": "customMetrics/grafanaTestBello MaxDurationMs",
+            "metricName": "customMetrics/$functionname MaxDurationMs",
             "rawQuery": false,
             "rawQueryString": "",
             "spliton": "",
@@ -289,7 +146,73 @@
               "count",
               "unique"
             ],
-            "aggregation": "min",
+            "aggregation": "sum",
+            "alias": "Average Duration",
+            "groupBy": "operation/name",
+            "groupByOptions": [
+              "operation/name",
+              "operation/synthetic",
+              "operation/syntheticSource",
+              "user/authenticated",
+              "application/version",
+              "client/type",
+              "client/model",
+              "client/os",
+              "client/city",
+              "client/stateOrProvince",
+              "client/countryOrRegion",
+              "client/browser",
+              "cloud/roleName",
+              "cloud/roleInstance",
+              "customDimensions/appSrv_wsOwner",
+              "customDimensions/appSrv_wsStamp",
+              "customDimensions/processSessionId",
+              "customDimensions/baseSdkTargetFramework",
+              "customDimensions/appSrv_ResourceGroup",
+              "customDimensions/appSrv_SlotName",
+              "customDimensions/runtimeFramework",
+              "customDimensions/appSrv_SiteName",
+              "customDimensions/appSrv_wsHost",
+              "customDimensions/osType",
+              "customDimensions/HostInstanceId",
+              "customDimensions/Category",
+              "customDimensions/LogLevel"
+            ],
+            "metricName": "customMetrics/$functionname AvgDurationMs",
+            "rawQuery": false,
+            "rawQueryString": "",
+            "spliton": "",
+            "timeGrainType": "auto",
+            "xaxis": "timestamp",
+            "yaxis": ""
+          },
+          "azureLogAnalytics": {
+            "query": "//change this example to create your own time series query\n<table name>                                                              //the table to query (e.g. Usage, Heartbeat, Perf)\n| where $__timeFilter(TimeGenerated)                                      //this is a macro used to show the full chart’s time range, choose the datetime column here\n| summarize count() by <group by column>, bin(TimeGenerated, $__interval) //change “group by column” to a column in your table, such as “Computer”. The $__interval macro is used to auto-select the time grain. Can also use 1h, 5m etc.\n| order by TimeGenerated asc",
+            "resultFormat": "time_series"
+          },
+          "azureMonitor": {
+            "dimensionFilter": "*",
+            "metricDefinition": "select",
+            "metricName": "select",
+            "resourceGroup": "select",
+            "resourceName": "select",
+            "timeGrain": "auto"
+          },
+          "queryType": "Application Insights",
+          "refId": "B",
+          "subscription": "3231ca87-29a8-4713-8ce4-05a6765cddf8"
+        },
+        {
+          "appInsights": {
+            "aggOptions": [
+              "avg",
+              "min",
+              "max",
+              "sum",
+              "count",
+              "unique"
+            ],
+            "aggregation": "sum",
             "alias": "Min Duration",
             "groupBy": "operation/name",
             "groupByOptions": [
@@ -321,7 +244,229 @@
               "customDimensions/Category",
               "customDimensions/LogLevel"
             ],
-            "metricName": "customMetrics/grafanaTestBello MinDurationMs",
+            "metricName": "customMetrics/$functionname MinDurationMs",
+            "rawQuery": false,
+            "rawQueryString": "",
+            "spliton": "",
+            "timeGrain": "",
+            "timeGrainType": "auto",
+            "timeGrainUnit": "hour",
+            "xaxis": "timestamp",
+            "yaxis": ""
+          },
+          "azureLogAnalytics": {
+            "query": "//change this example to create your own time series query\n<table name>                                                              //the table to query (e.g. Usage, Heartbeat, Perf)\n| where $__timeFilter(TimeGenerated)                                      //this is a macro used to show the full chart’s time range, choose the datetime column here\n| summarize count() by <group by column>, bin(TimeGenerated, $__interval) //change “group by column” to a column in your table, such as “Computer”. The $__interval macro is used to auto-select the time grain. Can also use 1h, 5m etc.\n| order by TimeGenerated asc",
+            "resultFormat": "time_series"
+          },
+          "azureMonitor": {
+            "dimensionFilter": "*",
+            "metricDefinition": "select",
+            "metricName": "select",
+            "resourceGroup": "select",
+            "resourceName": "select",
+            "timeGrain": "auto"
+          },
+          "queryType": "Application Insights",
+          "refId": "C",
+          "subscription": "3231ca87-29a8-4713-8ce4-05a6765cddf8"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "ms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "ms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Error Sum": "red",
+        "customMetrics/grafanaTestBello Failures": "red"
+      },
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Azure Monitor",
+      "decimals": 0,
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 4,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": true,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "appInsights": {
+            "aggOptions": [
+              "avg",
+              "min",
+              "max",
+              "sum",
+              "count",
+              "unique"
+            ],
+            "aggregation": "avg",
+            "alias": "Invocation Sum",
+            "groupBy": "operation/name",
+            "groupByOptions": [
+              "operation/name",
+              "operation/synthetic",
+              "operation/syntheticSource",
+              "user/authenticated",
+              "application/version",
+              "client/type",
+              "client/model",
+              "client/os",
+              "client/city",
+              "client/stateOrProvince",
+              "client/countryOrRegion",
+              "client/browser",
+              "cloud/roleName",
+              "cloud/roleInstance",
+              "customDimensions/LogLevel",
+              "customDimensions/Category",
+              "customDimensions/HostInstanceId",
+              "customDimensions/processSessionId",
+              "customDimensions/baseSdkTargetFramework",
+              "customDimensions/appSrv_ResourceGroup",
+              "customDimensions/appSrv_SlotName",
+              "customDimensions/runtimeFramework",
+              "customDimensions/appSrv_SiteName",
+              "customDimensions/appSrv_wsStamp",
+              "customDimensions/appSrv_wsOwner",
+              "customDimensions/appSrv_wsHost",
+              "customDimensions/osType"
+            ],
+            "metricName": "customMetrics/$functionname Count",
+            "rawQuery": false,
+            "rawQueryString": "",
+            "spliton": "",
+            "timeGrainType": "auto",
+            "xaxis": "timestamp",
+            "yaxis": ""
+          },
+          "azureLogAnalytics": {
+            "query": "//change this example to create your own time series query\n<table name>                                                              //the table to query (e.g. Usage, Heartbeat, Perf)\n| where $__timeFilter(TimeGenerated)                                      //this is a macro used to show the full chart’s time range, choose the datetime column here\n| summarize count() by <group by column>, bin(TimeGenerated, $__interval) //change “group by column” to a column in your table, such as “Computer”. The $__interval macro is used to auto-select the time grain. Can also use 1h, 5m etc.\n| order by TimeGenerated asc",
+            "resultFormat": "time_series"
+          },
+          "azureMonitor": {
+            "dimensionFilter": "*",
+            "metricDefinition": "select",
+            "metricName": "select",
+            "resourceGroup": "select",
+            "resourceName": "select",
+            "timeGrain": "auto"
+          },
+          "queryType": "Application Insights",
+          "refId": "A",
+          "subscription": "3231ca87-29a8-4713-8ce4-05a6765cddf8"
+        },
+        {
+          "appInsights": {
+            "aggOptions": [
+              "avg",
+              "min",
+              "max",
+              "sum",
+              "count",
+              "unique"
+            ],
+            "aggregation": "avg",
+            "alias": "Error Sum",
+            "groupBy": "operation/name",
+            "groupByOptions": [
+              "operation/name",
+              "operation/synthetic",
+              "operation/syntheticSource",
+              "user/authenticated",
+              "application/version",
+              "client/type",
+              "client/model",
+              "client/os",
+              "client/city",
+              "client/stateOrProvince",
+              "client/countryOrRegion",
+              "client/browser",
+              "cloud/roleName",
+              "cloud/roleInstance",
+              "customDimensions/appSrv_wsOwner",
+              "customDimensions/appSrv_wsStamp",
+              "customDimensions/processSessionId",
+              "customDimensions/baseSdkTargetFramework",
+              "customDimensions/appSrv_ResourceGroup",
+              "customDimensions/appSrv_SlotName",
+              "customDimensions/runtimeFramework",
+              "customDimensions/appSrv_SiteName",
+              "customDimensions/appSrv_wsHost",
+              "customDimensions/osType",
+              "customDimensions/HostInstanceId",
+              "customDimensions/Category",
+              "customDimensions/LogLevel"
+            ],
+            "metricName": "customMetrics/grafanaTestBello Failures",
             "rawQuery": false,
             "rawQueryString": "",
             "spliton": "",
@@ -350,7 +495,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "Invocations",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -366,19 +511,21 @@
       },
       "yaxes": [
         {
-          "format": "short",
+          "decimals": 0,
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
-          "format": "short",
+          "decimals": 0,
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         }
       ],
@@ -388,6 +535,7 @@
       }
     }
   ],
+  "refresh": false,
   "schemaVersion": 19,
   "style": "dark",
   "tags": [],
@@ -396,6 +544,7 @@
       {
         "allValue": null,
         "current": {
+          "tags": [],
           "text": "grafanaTestBello",
           "value": "grafanaTestBello"
         },
@@ -423,7 +572,7 @@
     ]
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
