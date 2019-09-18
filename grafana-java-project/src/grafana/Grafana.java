@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import grafana.conf.Conf;
 import grafana.dashboard.AWSDashboard;
 import grafana.dashboard.LocalDashboard;
+import grafana.datasource.AzureMonitorDataSource;
 import grafana.datasource.CloudWatchDataSource;
 import grafana.datasource.JSONDataSource;
 import monitoring.LocalMonitoringWebServer;
@@ -143,6 +144,13 @@ public class Grafana {
 		
 		this.awsDashboard = new AWSDashboard(cloudWatchDataSource);
 		this.awsDashboard.createConfig(this.folderPath);
+	}
+	
+	public void enableAzureMonitoring(String name, String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey) {
+		AzureMonitorDataSource azureMonitorDataSource = new AzureMonitorDataSource(name, tenantId, clientId, clientSecret, defaultSubscription, applicationId, apiKey);
+		azureMonitorDataSource.createConfig(this.folderPath);
+		
+		//dashboard
 	}
 	
 	public void addAWSFunction(String functionName) {
