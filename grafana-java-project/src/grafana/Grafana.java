@@ -146,8 +146,8 @@ public class Grafana {
 		this.awsDashboard.createConfig(this.folderPath);
 	}
 	
-	public void enableAzureMonitoring(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey) {
-		AzureMonitorDataSource azureMonitorDataSource = new AzureMonitorDataSource("Azure Monitor", tenantId, clientId, clientSecret, defaultSubscription, applicationId, apiKey);
+	public void enableAzureMonitoring(String name, String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey) {
+		AzureMonitorDataSource azureMonitorDataSource = new AzureMonitorDataSource(name, tenantId, clientId, clientSecret, defaultSubscription, applicationId, apiKey);
 		azureMonitorDataSource.createConfig(this.folderPath);
 		
 		//dashboard
