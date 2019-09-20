@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import grafana.conf.Conf;
 import grafana.dashboard.AWSDashboard;
+import grafana.dashboard.AzureDashboard;
 import grafana.dashboard.LocalDashboard;
 import grafana.datasource.AzureMonitorDataSource;
 import grafana.datasource.CloudWatchDataSource;
@@ -31,6 +32,8 @@ public class Grafana {
 	private LocalMonitoringWebServer localWebServer;
 	
 	private AWSDashboard awsDashboard;
+	
+	private AzureDashboard azureDashboard;
 
 	//Costruttore
 	public Grafana(int httpPort, boolean consoleLog) {
@@ -146,13 +149,6 @@ public class Grafana {
 		this.awsDashboard.createConfig(this.folderPath);
 	}
 	
-	public void enableAzureMonitoring(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey) {
-		AzureMonitorDataSource azureMonitorDataSource = new AzureMonitorDataSource("Azure Monitor", tenantId, clientId, clientSecret, defaultSubscription, applicationId, apiKey);
-		azureMonitorDataSource.createConfig(this.folderPath);
-		
-		//dashboard
-	}
-	
 	public void addAWSFunction(String functionName) {
 		this.awsDashboard.addFunction(functionName);
 		this.awsDashboard.createConfig(this.folderPath);
@@ -162,6 +158,25 @@ public class Grafana {
 		for (String function : functions)
 			this.awsDashboard.addFunction(function);
 		this.awsDashboard.createConfig(this.folderPath);
+	}
+	
+	public void enableAzureMonitoring(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey) {
+		AzureMonitorDataSource azureMonitorDataSource = new AzureMonitorDataSource("Azure Monitor", tenantId, clientId, clientSecret, defaultSubscription, applicationId, apiKey);
+		azureMonitorDataSource.createConfig(this.folderPath);
+		
+		this.azureDashboard = new AzureDashboard(azureMonitorDataSource);
+		this.azureDashboard.createConfig(this.folderPath);
+	}
+	
+	public void addAzureFunction(String functionName) {
+		this.azureDashboard.addFunction(functionName);
+		this.azureDashboard.createConfig(this.folderPath);
+	}
+	
+	public void addAzureFunction(ArrayList<String> functions) {
+		for (String function : functions)
+			this.azureDashboard.addFunction(function);
+		this.azureDashboard.createConfig(this.folderPath);
 	}
 
 }

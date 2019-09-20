@@ -12,37 +12,37 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import grafana.Configurable;
-import grafana.datasource.CloudWatchDataSource;
+import grafana.datasource.AzureMonitorDataSource;
 
-public class AWSDashboard implements Configurable{
+public class AzureDashboard implements Configurable{
 	private File file;
-	private CloudWatchDataSource cloudWatchDataSource;
+	private AzureMonitorDataSource azureMonitorDataSource;
 	private ArrayList<String> functions;
 	
-	public AWSDashboard(CloudWatchDataSource cloudWatchDataSource) {
-		this.cloudWatchDataSource = cloudWatchDataSource;
+	public AzureDashboard(AzureMonitorDataSource azureMonitorDataSource) {
+		this.azureMonitorDataSource = azureMonitorDataSource;
 		this.functions = new ArrayList<String>();
 	}
 
 	@Override
 	public void createConfig(String grafanaPath) {
 		try {
-			String dashboard = new String(Files.readAllBytes(Paths.get(grafanaPath+"/conf/provisioning/dashboards/awsdashboard.template")));
+			String dashboard = new String(Files.readAllBytes(Paths.get(grafanaPath+"/conf/provisioning/dashboards/azuredashboard.template")));
 			
-			dashboard = dashboard.replaceAll("\\$cloudwatch-datasource-name", cloudWatchDataSource.getName());
-			dashboard = dashboard.replaceAll("\\$cloudwatch-default-region", cloudWatchDataSource.getDefaultRegion());
+			dashboard = dashboard.replaceAll("\\$azure-datasource-name", azureMonitorDataSource.getName());
 			if (functions.isEmpty()) 
-				dashboard = dashboard.replaceAll("\\$functionname-regex", "");
+				dashboard = dashboard.replaceAll("\\$variable-functions", "");
 			else {
-				String regex = "";
+				String options = "";
 				int i;
 				for (i=0; i<functions.size()-1; i++)
-					regex += functions.get(i) + "|";
-				regex += functions.get(i);
-				dashboard = dashboard.replaceAll("\\$functionname-regex", regex);
+					options += "{\"selected\":false, \"text\":\"" + functions.get(i) + "\", \"value\":\"" + functions.get(i) + "\"},";
+				options += "{\"selected\":true, \"text\":\"" + functions.get(i) + "\", \"value\":\"" + functions.get(i) + "\"}";
+				dashboard = dashboard.replaceAll("\\$variable-functions", options);
+				dashboard = dashboard.replaceAll("\\$variable-current", functions.get(i));
 			}	
 			
-			file = new File(grafanaPath+"/conf/provisioning/dashboards/awsdashboard.json");
+			file = new File(grafanaPath+"/conf/provisioning/dashboards/azuredashboard.json");
 			Writer writer = null;
 			
 			try{
@@ -68,7 +68,7 @@ public class AWSDashboard implements Configurable{
 	@Override
 	public void deleteConfig() {
 		file.delete();
-		cloudWatchDataSource.deleteConfig();
+		azureMonitorDataSource.deleteConfig();
 	}
 	
 	public void addFunction(String functionName) {
