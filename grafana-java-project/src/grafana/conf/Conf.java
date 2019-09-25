@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 
 import grafana.Configurable;
+import grafana.Grafana;
 
 public class Conf implements Configurable{
 	private File file;
@@ -19,12 +20,12 @@ public class Conf implements Configurable{
 	}
 
 	@Override
-	public void createConfig(String grafanaPath) {
+	public void createConfig() {
 		String conf = "[server]\n"
 				+ "http_port = " + this.port + "\n"
 				+ "[auth.anonymous]\n" 
 				+ "enabled = true";
-		file = new File(grafanaPath+"/conf/custom.ini");
+		file = new File(Grafana.folderPath+"/conf/custom.ini");
 		Writer writer = null;
 		
 		try{

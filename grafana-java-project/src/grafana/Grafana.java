@@ -6,15 +6,10 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-//import java.util.ArrayList;
-import java.util.ArrayList;
 
 import grafana.conf.Conf;
-import grafana.dashboard.AWSDashboard;
-import grafana.dashboard.AzureDashboard;
+import grafana.dashboard.Dashboard;
 import grafana.dashboard.LocalDashboard;
-import grafana.datasource.AzureMonitorDataSource;
-import grafana.datasource.CloudWatchDataSource;
 import grafana.datasource.JSONDataSource;
 import monitoring.LocalMonitoringWebServer;
 import net.lingala.zip4j.ZipFile;
@@ -24,22 +19,24 @@ import test.Test;
 public class Grafana {
 	private Process grafana;
 	private int httpPort = 3000; //Porta su cui ascolta la console di Grafana
-	private String folderPath;
+	public static String folderPath;
 	private boolean consoleLog;	
 	private final static String serverName = "server.zip";
 	
 	private LocalDashboard localDashboard;
 	private LocalMonitoringWebServer localWebServer;
 	
+	/*
 	private AWSDashboard awsDashboard;
 	
 	private AzureDashboard azureDashboard;
+	*/
 
 	//Costruttore
 	public Grafana(int httpPort, boolean consoleLog) {
 		this.httpPort = httpPort;
 		this.consoleLog = consoleLog;
-		this.folderPath = System.getProperty("java.io.tmpdir")+"/grafana";
+		Grafana.folderPath = System.getProperty("java.io.tmpdir")+"/grafana";
 		
 		System.out.println("Deploy server Grafana...");
 		if (!this.deployServerFolder()) {
@@ -48,7 +45,7 @@ public class Grafana {
 		}
 		
 		Conf conf = new Conf(this.httpPort);
-		conf.createConfig(this.folderPath);
+		conf.createConfig();
 	}
 	
 	//Metodo che avvia il server facendone prima il deploy
@@ -127,10 +124,10 @@ public class Grafana {
 	
 	public void enableLocalMonitoring(int apiPort, int collectorDelay) {
 		JSONDataSource jsonDataSource = new JSONDataSource("JSONDataSource", "http://localhost:"+apiPort, JSONDataSource.SERVER);
-		jsonDataSource.createConfig(this.folderPath);
+		jsonDataSource.createConfig();
 		
 		this.localDashboard = new LocalDashboard(jsonDataSource);
-		this.localDashboard.createConfig(this.folderPath);
+		this.localDashboard.createConfig();
 		
 		this.localWebServer = new LocalMonitoringWebServer(apiPort, collectorDelay);
 	    this.localWebServer.start();
@@ -141,42 +138,13 @@ public class Grafana {
 		this.localWebServer.stop();
 	}
 	
-	public void enableCloudWatchMonitoring(String accessKey, String secretKey, String defaultRegion) {
-		CloudWatchDataSource cloudWatchDataSource = new CloudWatchDataSource("CloudWatch", accessKey, secretKey, defaultRegion);
-		cloudWatchDataSource.createConfig(this.folderPath);
-		
-		this.awsDashboard = new AWSDashboard(cloudWatchDataSource);
-		this.awsDashboard.createConfig(this.folderPath);
+	public void addDashboard(Dashboard dashboard) {
+		dashboard.getDataSource().createConfig();
+		dashboard.createConfig();
 	}
 	
-	public void addAWSFunction(String functionName) {
-		this.awsDashboard.addFunction(functionName);
-		this.awsDashboard.createConfig(this.folderPath);
-	}
-	
-	public void addAWSFunction(ArrayList<String> functions) {
-		for (String function : functions)
-			this.awsDashboard.addFunction(function);
-		this.awsDashboard.createConfig(this.folderPath);
-	}
-	
-	public void enableAzureMonitoring(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey) {
-		AzureMonitorDataSource azureMonitorDataSource = new AzureMonitorDataSource("Azure Monitor", tenantId, clientId, clientSecret, defaultSubscription, applicationId, apiKey);
-		azureMonitorDataSource.createConfig(this.folderPath);
-		
-		this.azureDashboard = new AzureDashboard(azureMonitorDataSource);
-		this.azureDashboard.createConfig(this.folderPath);
-	}
-	
-	public void addAzureFunction(String functionName) {
-		this.azureDashboard.addFunction(functionName);
-		this.azureDashboard.createConfig(this.folderPath);
-	}
-	
-	public void addAzureFunction(ArrayList<String> functions) {
-		for (String function : functions)
-			this.azureDashboard.addFunction(function);
-		this.azureDashboard.createConfig(this.folderPath);
+	public void removeDashboard(Dashboard dashboard) {
+		dashboard.deleteConfig();
 	}
 
 }

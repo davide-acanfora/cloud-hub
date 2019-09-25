@@ -11,26 +11,25 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-import grafana.Configurable;
+import grafana.Grafana;
 import grafana.datasource.CloudWatchDataSource;
 
-public class AWSDashboard implements Configurable{
+public class AWSDashboard extends Dashboard{
 	private File file;
-	private CloudWatchDataSource cloudWatchDataSource;
 	private ArrayList<String> functions;
 	
 	public AWSDashboard(CloudWatchDataSource cloudWatchDataSource) {
-		this.cloudWatchDataSource = cloudWatchDataSource;
+		this.dataSource = cloudWatchDataSource;
 		this.functions = new ArrayList<String>();
 	}
-
+	
 	@Override
-	public void createConfig(String grafanaPath) {
+	public void createConfig() {
 		try {
-			String dashboard = new String(Files.readAllBytes(Paths.get(grafanaPath+"/conf/provisioning/dashboards/awsdashboard.template")));
+			String dashboard = new String(Files.readAllBytes(Paths.get(Grafana.folderPath+"/conf/provisioning/dashboards/awsdashboard.template")));
 			
-			dashboard = dashboard.replaceAll("\\$cloudwatch-datasource-name", cloudWatchDataSource.getName());
-			dashboard = dashboard.replaceAll("\\$cloudwatch-default-region", cloudWatchDataSource.getDefaultRegion());
+			dashboard = dashboard.replaceAll("\\$cloudwatch-datasource-name", dataSource.getName());
+			dashboard = dashboard.replaceAll("\\$cloudwatch-default-region", ((CloudWatchDataSource) dataSource).getDefaultRegion());
 			if (functions.isEmpty()) 
 				dashboard = dashboard.replaceAll("\\$functionname-regex", "");
 			else {
@@ -42,7 +41,7 @@ public class AWSDashboard implements Configurable{
 				dashboard = dashboard.replaceAll("\\$functionname-regex", regex);
 			}	
 			
-			file = new File(grafanaPath+"/conf/provisioning/dashboards/awsdashboard.json");
+			file = new File(Grafana.folderPath+"/conf/provisioning/dashboards/awsdashboard.json");
 			Writer writer = null;
 			
 			try{
@@ -68,11 +67,12 @@ public class AWSDashboard implements Configurable{
 	@Override
 	public void deleteConfig() {
 		file.delete();
-		cloudWatchDataSource.deleteConfig();
 	}
 	
 	public void addFunction(String functionName) {
 		this.functions.add(functionName);
+		if (this.file != null) 
+			createConfig();
 	}
 
 	

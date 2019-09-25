@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import grafana.Configurable;
+import grafana.Grafana;
 import grafana.datasource.JSONDataSource;
 
 public class LocalDashboard implements Configurable{
@@ -22,11 +23,11 @@ public class LocalDashboard implements Configurable{
 	}
 
 	@Override
-	public void createConfig(String grafanaPath) {
+	public void createConfig() {
 		try {
-			String dashboard = new String(Files.readAllBytes(Paths.get(grafanaPath+"/conf/provisioning/dashboards/localdashboard.template")));
+			String dashboard = new String(Files.readAllBytes(Paths.get(Grafana.folderPath+"/conf/provisioning/dashboards/localdashboard.template")));
 			dashboard = dashboard.replaceAll("\\$json-datasource-name", jsonDataSource.getName());
-			file = new File(grafanaPath+"/conf/provisioning/dashboards/localdashboard.json");
+			file = new File(Grafana.folderPath+"/conf/provisioning/dashboards/localdashboard.json");
 			Writer writer = null;
 			
 			try{

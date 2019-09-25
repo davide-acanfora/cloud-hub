@@ -8,7 +8,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
-public class JSONDataSource extends AbstractDataSource{
+import grafana.Grafana;
+
+public class JSONDataSource extends DataSource{
 	private String url;
 	private File file;
 	private String access;
@@ -68,8 +70,8 @@ public class JSONDataSource extends AbstractDataSource{
 	}
 
 	@Override
-	public void createConfig(String grafanaPath) {
-		file = new File(grafanaPath+"/conf/provisioning/datasources/"+getName()+".yaml");
+	public void createConfig() {
+		file = new File(Grafana.folderPath+"/conf/provisioning/datasources/"+getName()+".yaml");
 		String toFile = "apiVersion: 1\n"
 				+ "datasources:\n"
 				+ " - name: " + getName() + "\n"

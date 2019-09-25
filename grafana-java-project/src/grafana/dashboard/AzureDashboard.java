@@ -10,26 +10,24 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-
-import grafana.Configurable;
+import grafana.Grafana;
 import grafana.datasource.AzureMonitorDataSource;
 
-public class AzureDashboard implements Configurable{
+public class AzureDashboard extends Dashboard{
 	private File file;
-	private AzureMonitorDataSource azureMonitorDataSource;
 	private ArrayList<String> functions;
 	
 	public AzureDashboard(AzureMonitorDataSource azureMonitorDataSource) {
-		this.azureMonitorDataSource = azureMonitorDataSource;
+		this.dataSource = azureMonitorDataSource;
 		this.functions = new ArrayList<String>();
 	}
 
 	@Override
-	public void createConfig(String grafanaPath) {
+	public void createConfig() {
 		try {
-			String dashboard = new String(Files.readAllBytes(Paths.get(grafanaPath+"/conf/provisioning/dashboards/azuredashboard.template")));
+			String dashboard = new String(Files.readAllBytes(Paths.get(Grafana.folderPath+"/conf/provisioning/dashboards/azuredashboard.template")));
 			
-			dashboard = dashboard.replaceAll("\\$azure-datasource-name", azureMonitorDataSource.getName());
+			dashboard = dashboard.replaceAll("\\$azure-datasource-name", this.dataSource.getName());
 			if (functions.isEmpty()) 
 				dashboard = dashboard.replaceAll("\\$variable-functions", "");
 			else {
@@ -42,7 +40,7 @@ public class AzureDashboard implements Configurable{
 				dashboard = dashboard.replaceAll("\\$variable-current", functions.get(i));
 			}	
 			
-			file = new File(grafanaPath+"/conf/provisioning/dashboards/azuredashboard.json");
+			file = new File(Grafana.folderPath+"/conf/provisioning/dashboards/azuredashboard.json");
 			Writer writer = null;
 			
 			try{
@@ -68,11 +66,12 @@ public class AzureDashboard implements Configurable{
 	@Override
 	public void deleteConfig() {
 		file.delete();
-		azureMonitorDataSource.deleteConfig();
 	}
 	
 	public void addFunction(String functionName) {
 		this.functions.add(functionName);
+		if (this.file != null) 
+			createConfig();
 	}
 
 	

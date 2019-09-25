@@ -1,6 +1,6 @@
 package grafana;
 
 public interface Configurable {
-	public void createConfig(String grafanaPath);
+	public void createConfig();
 	public void deleteConfig();
 }

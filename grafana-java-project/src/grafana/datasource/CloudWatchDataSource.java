@@ -8,14 +8,17 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
-public class CloudWatchDataSource extends AbstractDataSource{
+import grafana.Grafana;
+
+public class CloudWatchDataSource extends DataSource{
+	private static int counter = 0;
 	private File file;
 	private String accessKey;
 	private String secretKey;
 	private String defaultRegion;
 	
-	public CloudWatchDataSource(String name, String accessKey, String secretKey, String defaultRegion) {
-		setName(name);
+	public CloudWatchDataSource(String accessKey, String secretKey, String defaultRegion) {
+		setName("CloudWatch"+(++counter));
 		setType("cloudwatch");
 		setAccessKey(accessKey);
 		setSecretKey(secretKey);
@@ -47,8 +50,8 @@ public class CloudWatchDataSource extends AbstractDataSource{
 	}
 
 	@Override
-	public void createConfig(String grafanaPath) {
-		file = new File(grafanaPath+"/conf/provisioning/datasources/"+getName()+".yaml");
+	public void createConfig() {
+		file = new File(Grafana.folderPath+"/conf/provisioning/datasources/"+getName()+".yaml");
 		String toFile = "apiVersion: 1\n"
 				+ "datasources:\n"
 				+ " - name: " + getName() + "\n"

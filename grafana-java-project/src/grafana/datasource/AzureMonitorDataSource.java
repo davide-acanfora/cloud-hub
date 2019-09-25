@@ -8,7 +8,10 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
-public class AzureMonitorDataSource extends AbstractDataSource{
+import grafana.Grafana;
+
+public class AzureMonitorDataSource extends DataSource{
+	private static int counter = 0;
 	private File file;
 	private String tenantId;
 	private String clientId;
@@ -18,8 +21,8 @@ public class AzureMonitorDataSource extends AbstractDataSource{
 	private String apiKey;
 	
 	
-	public AzureMonitorDataSource(String name, String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey) {
-		setName(name);
+	public AzureMonitorDataSource(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey) {
+		setName("AzureMonitor"+(++counter));
 		setType("grafana-azure-monitor-datasource");
 		setTenantId(tenantId);
 		setClientId(clientId);
@@ -78,8 +81,8 @@ public class AzureMonitorDataSource extends AbstractDataSource{
 	}
 
 	@Override
-	public void createConfig(String grafanaPath) {
-		file = new File(grafanaPath+"/conf/provisioning/datasources/"+getName()+".yaml");
+	public void createConfig() {
+		file = new File(Grafana.folderPath+"/conf/provisioning/datasources/"+getName()+".yaml");
 		String toFile = "apiVersion: 1\n"
 				+ "datasources:\n"
 				+ " - name: " + getName() + "\n"

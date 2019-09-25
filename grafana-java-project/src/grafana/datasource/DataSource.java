@@ -2,7 +2,7 @@ package grafana.datasource;
 
 import grafana.Configurable;
 
-public abstract class AbstractDataSource implements Configurable{
+public abstract class DataSource implements Configurable{
 	private String name;
 	private String type;
 	
