@@ -18,8 +18,9 @@ public class AWSDashboard extends Dashboard{
 	private File file;
 	private ArrayList<String> functions;
 	
-	public AWSDashboard(CloudWatchDataSource cloudWatchDataSource) {
-		this.dataSource = cloudWatchDataSource;
+	public AWSDashboard(String name, CloudWatchDataSource cloudWatchDataSource) {
+		setName(name);
+		setDataSource(cloudWatchDataSource);
 		this.functions = new ArrayList<String>();
 	}
 	
@@ -28,10 +29,12 @@ public class AWSDashboard extends Dashboard{
 		try {
 			String dashboard = new String(Files.readAllBytes(Paths.get(Grafana.folderPath+"/conf/provisioning/dashboards/awsdashboard.template")));
 			
+			dashboard = dashboard.replaceAll("\\$dashboard-name", getName());
+			dashboard = dashboard.replaceAll("\\$dashboard-uid", getName().replaceAll(" ", ""));
 			dashboard = dashboard.replaceAll("\\$cloudwatch-datasource-name", dataSource.getName());
 			dashboard = dashboard.replaceAll("\\$cloudwatch-default-region", ((CloudWatchDataSource) dataSource).getDefaultRegion());
 			if (functions.isEmpty()) 
-				dashboard = dashboard.replaceAll("\\$functionname-regex", "");
+				dashboard = dashboard.replaceAll("\\$functionname-regex|\\$variable-current", "");
 			else {
 				String regex = "";
 				int i;
@@ -39,9 +42,10 @@ public class AWSDashboard extends Dashboard{
 					regex += functions.get(i) + "|";
 				regex += functions.get(i);
 				dashboard = dashboard.replaceAll("\\$functionname-regex", regex);
+				dashboard = dashboard.replaceAll("\\$variable-current", functions.get(i));
 			}	
 			
-			file = new File(Grafana.folderPath+"/conf/provisioning/dashboards/awsdashboard.json");
+			file = new File(Grafana.folderPath+"/conf/provisioning/dashboards/"+getName()+".json");
 			Writer writer = null;
 			
 			try{
@@ -74,6 +78,5 @@ public class AWSDashboard extends Dashboard{
 		if (this.file != null) 
 			createConfig();
 	}
-
 	
 }

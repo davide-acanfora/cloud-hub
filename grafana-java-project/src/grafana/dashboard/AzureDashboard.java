@@ -17,8 +17,9 @@ public class AzureDashboard extends Dashboard{
 	private File file;
 	private ArrayList<String> functions;
 	
-	public AzureDashboard(AzureMonitorDataSource azureMonitorDataSource) {
-		this.dataSource = azureMonitorDataSource;
+	public AzureDashboard(String name, AzureMonitorDataSource azureMonitorDataSource) {
+		setName(name);
+		setDataSource(azureMonitorDataSource);
 		this.functions = new ArrayList<String>();
 	}
 
@@ -27,9 +28,11 @@ public class AzureDashboard extends Dashboard{
 		try {
 			String dashboard = new String(Files.readAllBytes(Paths.get(Grafana.folderPath+"/conf/provisioning/dashboards/azuredashboard.template")));
 			
+			dashboard = dashboard.replaceAll("\\$dashboard-name", getName());
+			dashboard = dashboard.replaceAll("\\$dashboard-uid", getName().replaceAll(" ", ""));
 			dashboard = dashboard.replaceAll("\\$azure-datasource-name", this.dataSource.getName());
 			if (functions.isEmpty()) 
-				dashboard = dashboard.replaceAll("\\$variable-functions", "");
+				dashboard = dashboard.replaceAll("\\$variable-functions|\\$variable-current", "");
 			else {
 				String options = "";
 				int i;
@@ -40,7 +43,7 @@ public class AzureDashboard extends Dashboard{
 				dashboard = dashboard.replaceAll("\\$variable-current", functions.get(i));
 			}	
 			
-			file = new File(Grafana.folderPath+"/conf/provisioning/dashboards/azuredashboard.json");
+			file = new File(Grafana.folderPath+"/conf/provisioning/dashboards/"+getName()+".json");
 			Writer writer = null;
 			
 			try{
