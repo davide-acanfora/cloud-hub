@@ -9,7 +9,7 @@ In order to monitor a specific service, you need to get a Grafana instance first
 ```java
 Grafana grafana = new Grafana(3000, false);
 ```
-Then specify the appropiate **Datasource** of the service you want to monitor, *e.g. CloudWatch for Amazon Web Services*:
+Then specify the appropriate **Datasource** of the service you want to monitor, *e.g. CloudWatch for Amazon Web Services*:
 ```java
 CloudWatchDataSource datasource = new CloudWatchDataSource("ACCESS_KEY", "SECRET_KEY", "DEFAULT_REGION");
 ```
