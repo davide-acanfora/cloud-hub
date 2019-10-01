@@ -1,4 +1,4 @@
-# Multicloud Monitoring Library
+# Multicloud Monitoring Hub
 A Java library that uses [Grafana](https://grafana.com/ "Grafana") and helps you monitoring your Multicloud System, providing ready-to-use and configurable **Dashboards**.
 
 ![AWS Lambda](https://i.imgur.com/l4QlKYj.jpg)
