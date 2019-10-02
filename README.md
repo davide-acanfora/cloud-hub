@@ -1,9 +1,32 @@
 # Cloud Hub
-"Cloud Hub" is a Java library that uses [Grafana](https://grafana.com/ "Grafana") and helps you monitoring your Multicloud System, providing ready-to-use and configurable **Dashboards**.
+*Cloud Hub* is a Java library that uses [Grafana](https://grafana.com/ "Grafana") and helps you monitoring your Multicloud System, providing ready-to-use and configurable **Dashboards**.
 
 ![AWS Lambda](https://i.imgur.com/l4QlKYj.jpg)
 
-You don't need to have any Grafana files installed on your system. The library is responsible to deploy the Grafana server folder for you and runs it on localhost. The only thing you need to do is to add the Dashboards of the **services** you want to monitor.
+You don't need to have any Grafana files installed on your system. The library is responsible to deploy the Grafana server folder for you and runs it on localhost. The only thing you need to do is to add the Dashboards of the **services** you want to monitor. 
+
+**How it works:**  A compressed folder of a portable Grafana server instance is embedded in the *Cloud Hub* package. On startup the folder is moved to a temporary directory, decompressed and finally the *grafana-server* executable is started. When you configure and then add a new Dashboard to a Grafana instance, the library will automatically make the *provisioning* for you, creating its configuration files and placing them in the server directory.
+
+# Supported Systems
+Currently  **Cloud Hub** is developed on Ubuntu 19.04, but we are planning to support other Operating Systems. It should not be difficult since it's just a matter of resolving OS's dependencies (Grafana binaries files, process management, ...)
+
+| OS | Supported |
+| :------------: | :------------: |
+| Ubuntu | :heavy_check_mark:  |
+|  Windows | :hammer: |
+| Mac OS | :heavy_multiplication_x: |
+
+# Supported Services
+This is a list of the currently supported services you can monitor through the library:
+
+| Cloud Provider | Service Name |
+| :------------: | :------------: |
+| Amazon Web Services | *Billing* |
+|   | *Lambda* |
+|   | *SQS* |
+| Microsoft Azure | *Functions* |
+|   | *Storage Queue* |
+
 # Basic Usage
 In order to monitor a specific service, you need to get a Grafana instance first specifying the web server port and a flag indicating whether or not to print the console logs:
 ```java
@@ -26,3 +49,5 @@ grafana.add(dashboard);
 dashboard.addFunction("FUNCTION_NAME");
 ```
 either before or after adding the Dashboard to Grafana.
+
+
