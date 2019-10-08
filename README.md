@@ -27,10 +27,11 @@ This is a list of the currently supported services you can monitor through the l
 | Microsoft Azure | *Functions* |
 |   | *Storage Queue* |
 
+You can also run a simple HTTP Web Server to monitor the **local system** (CPU usage and temperature, Memory usage) in real time.
 # Basic Usage
 In order to monitor a specific service, you need to get a Grafana instance first specifying the web server port and a flag indicating whether or not to print the console logs:
 ```java
-Grafana grafana = new Grafana(3000, false);
+Grafana grafana = new Grafana(SERVER_PORT, FLAG);
 ```
 Then specify the appropriate **Datasource** of the service you want to monitor, *e.g. CloudWatch for Amazon Web Services*:
 ```java
@@ -50,4 +51,7 @@ dashboard.addFunction("FUNCTION_NAME");
 ```
 either before or after adding the Dashboard to Grafana.
 
-
+If you want to enable the **local monitoring**, you need to specify the port where the server is going to run and the delay that will be applied for collecting local data:
+```java
+grafana.enableLocalMonitoring(API_PORT, COLLECTOR_DELAY);
+```
