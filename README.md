@@ -51,7 +51,9 @@ dashboard.addFunction("FUNCTION_NAME");
 ```
 either before or after adding the Dashboard to Grafana.
 
-If you want to enable the **local monitoring**, you need to specify the port where the server is going to run and the delay that will be applied for collecting local data:
+------------
+
+If you want to enable the **Local Monitoring**, you need to specify the port where the server is going to run and the delay that will be applied for collecting local data:
 ```java
 grafana.enableLocalMonitoring(API_PORT, COLLECTOR_DELAY);
 ```
