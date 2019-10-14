@@ -126,7 +126,7 @@ Prevents the Grafana process to close when the are no more instructions left in 
 
 ## AzureMonitorDatasource
 It represents the Azure Monitor Datasource and is responsible to create its configuration file for provisioning.
-###### `AzureMonitorDataSource(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey)`
+### `AzureMonitorDataSource(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey)`
  - `tenantId` lorem ipsum dolor sit amet
  - `clientId` lorem ipsum dolor sit amet
  - `clientSecret` lorem ipsum dolor sit amet
