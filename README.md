@@ -1,3 +1,4 @@
+
 # Cloud Hub
 *Cloud Hub* is a Java library that uses [Grafana](https://grafana.com/ "Grafana") and helps you monitoring your Multicloud System, providing ready-to-use and configurable **Dashboards**.
 
@@ -28,7 +29,7 @@ This is a list of the currently supported services you can monitor through the l
 |   | *Storage Queue* |
 
 You can also run a simple HTTP Web Server to monitor the **local system** (CPU usage and temperature, Memory usage) in real time.
-# Basic Usage
+# Quick Start
 In order to monitor a specific service, you need to get a Grafana instance first specifying the web server port and a flag indicating whether or not to print the console logs:
 ```java
 Grafana grafana = new Grafana(SERVER_PORT, FLAG);
@@ -50,10 +51,82 @@ grafana.add(dashboard);
 dashboard.addFunction("FUNCTION_NAME");
 ```
 either before or after adding the Dashboard to Grafana.
-
-------------
-
 If you want to enable the **Local Monitoring**, you need to specify the port where the server is going to run and the delay that will be applied for collecting local data:
 ```java
 grafana.enableLocalMonitoring(API_PORT, COLLECTOR_DELAY);
 ```
+
+# Documentation
+
+ - grafana.Grafana
+	 - [Constructor](#GrafanaCostructor)
+	 - start
+	 - addDashboard
+	 - removeDashboard
+	 - enableLocalMonitoring
+	 - disableLocalMonitoring
+	 - waitFor
+- grafana.datasource
+	- grafana.datasource.AzureMonitorDataSource
+		- Constructor
+	- grafana.datasource.CloudWatchDataSource
+		- Constructor
+	- grafana.datasource.JSONDataSource
+		- Constructor
+- grafana.dashboard
+	- grafana.dashboard.AWSLambdaDashboard
+		- Constructor
+		- addFunction
+	-  grafana.dashboard.AWSSQSDashboard
+		- Constructor
+		- addQueue
+	- grafana.dashboard.AWSBillingDashboard
+		- Constructor
+	- grafana.dashboard.AzureFunctionsDashboard
+		- Constructor
+		- addFunction
+	- grafana.dashboard.AzureQueueDashboard
+		- Constructor
+
+## Grafana
+It's the core of the library as it represents the Grafana server itself and it's used to control the dashboards.
+<a name="GrafanaCostructor">
+### `Grafana(int httpPort, boolean consoleLog)`
+Deploys a new Grafana server instance in a temporary system folder.
+ - `httpPort` is the port where the Grafana Web interface will listen on
+ - `consoleLog` enable/disable the Grafana console logs
+
+
+### `void start() throws IOException`
+Runs the Grafana server previously deployed. 
+
+### `void addDashboard(Dashboard dashboard)`
+Adds a dashboard to Grafana.
+ - `dashboard` is one of the supported dashboards (which extends the abstract *Dashboard* class)
+
+### `void removeDashboard(Dashboard dashboard)`
+Removes a dashboard from Grafana.
+ - `dashboard` is one of the supported dashboards (which extends the abstract *Dashboard* class)
+
+### `void enableLocalMonitoring(int apiPort, int collectorDelay)`
+Enables the local monitoring dashboard along with the HTTP API server that provides data to Grafana and the thread that collects the informations about the local resources.
+ - `apiPort` is the port of the HTTP API server
+ - `collectorDelay` is the time in milliseconds between one measurement and another
+
+ ### `void disableLocalMonitoring()`
+Disables the local monitoring by removing its dashboard and stopping the collector thread along with the HTTP API server.
+
+ ### `void waitFor() throws InterruptedException`
+Prevents the Grafana process to close when the are no more instructions left in Java (note that this method is blocking).
+
+## AzureMonitorDatasource
+It represents the Azure Monitor Datasource and is responsible to create its configuration file for provisioning.
+### `AzureMonitorDataSource(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey)`
+ - `tenantId` lorem ipsum dolor sit amet
+ - `clientId` lorem ipsum dolor sit amet
+ - `clientSecret` lorem ipsum dolor sit amet
+ - `defaultSubscription` lorem ipsum dolor sit amet
+ - `applicationId` lorem ipsum dolor sit amet
+ - `apiKey` lorem ipsum dolor sit amet
+
+lorem ipsum dolor sit amet
