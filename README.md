@@ -60,12 +60,12 @@ grafana.enableLocalMonitoring(API_PORT, COLLECTOR_DELAY);
 
  - grafana.Grafana
 	 - [Constructor](#GrafanaCostructor)
-	 - start
-	 - addDashboard
-	 - removeDashboard
-	 - enableLocalMonitoring
-	 - disableLocalMonitoring
-	 - waitFor
+	 - [start](#GrafanaStart)
+	 - [addDashboard](#GrafanaAddDashboard)
+	 - [removeDashboard](#GrafanaRemoveDashboard)
+	 - [enableLocalMonitoring](#GrafanaEnableLocalMonitoring)
+	 - [disableLocalMonitoring](#GrafanaDisableLocalMonitoring)
+	 - [waitFor](#GrafanaWaitFor)
 - grafana.datasource
 	- grafana.datasource.AzureMonitorDataSource
 		- Constructor
@@ -90,38 +90,43 @@ grafana.enableLocalMonitoring(API_PORT, COLLECTOR_DELAY);
 
 ## Grafana
 It's the core of the library as it represents the Grafana server itself and it's used to control the dashboards.
-<a name="GrafanaCostructor">
+<a name="GrafanaCostructor"></a>
 ### `Grafana(int httpPort, boolean consoleLog)`
 Deploys a new Grafana server instance in a temporary system folder.
  - `httpPort` is the port where the Grafana Web interface will listen on
  - `consoleLog` enable/disable the Grafana console logs
 
-
+<a name="GrafanaStart"></a>
 ### `void start() throws IOException`
 Runs the Grafana server previously deployed. 
 
+<a name="GrafanaAddDashboard"></a>
 ### `void addDashboard(Dashboard dashboard)`
 Adds a dashboard to Grafana.
  - `dashboard` is one of the supported dashboards (which extends the abstract *Dashboard* class)
 
+<a name="GrafanaRemoveDashboard"></a>
 ### `void removeDashboard(Dashboard dashboard)`
 Removes a dashboard from Grafana.
  - `dashboard` is one of the supported dashboards (which extends the abstract *Dashboard* class)
 
+<a name="GrafanaEnableLocalMonitoring"></a>
 ### `void enableLocalMonitoring(int apiPort, int collectorDelay)`
 Enables the local monitoring dashboard along with the HTTP API server that provides data to Grafana and the thread that collects the informations about the local resources.
  - `apiPort` is the port of the HTTP API server
  - `collectorDelay` is the time in milliseconds between one measurement and another
 
+<a name="GrafanaDisableLocalMonitoring"></a>
  ### `void disableLocalMonitoring()`
 Disables the local monitoring by removing its dashboard and stopping the collector thread along with the HTTP API server.
 
+<a name="GrafanaWaitFor"></a>
  ### `void waitFor() throws InterruptedException`
 Prevents the Grafana process to close when the are no more instructions left in Java (note that this method is blocking).
 
 ## AzureMonitorDatasource
 It represents the Azure Monitor Datasource and is responsible to create its configuration file for provisioning.
-### `AzureMonitorDataSource(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey)`
+###### `AzureMonitorDataSource(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey)`
  - `tenantId` lorem ipsum dolor sit amet
  - `clientId` lorem ipsum dolor sit amet
  - `clientSecret` lorem ipsum dolor sit amet
