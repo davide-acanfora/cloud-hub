@@ -21,52 +21,20 @@ public class JSONDataSource extends DataSource{
 	
 	public JSONDataSource(String name, String url, String access, long version, boolean editable) {
 		setName(name);
-		setUrl(url);
 		setType("simpod-json-datasource");
-		setAccess(access);
-		setVersion(version);
-		setEditable(editable);
+		this.url = url;
+		this.access = access;
+		this.version = version;
+		this.editable = editable;
 	}
 	
 	public JSONDataSource(String name, String url, String access) {
 		setName(name);
-		setUrl(url);
 		setType("simpod-json-datasource");
-		setAccess(access);
-		setVersion(System.currentTimeMillis());
-		setEditable(false);
-	}
-	
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
 		this.url = url;
-	}
-	
-	public String getAccess() {
-		return access;
-	}
-	
-	public void setAccess(String access) {
 		this.access = access;
-	}
-
-	public long getVersion() {
-		return version;
-	}
-
-	public void setVersion(long version) {
-		this.version = version;
-	}
-
-	public boolean isEditable() {
-		return editable;
-	}
-
-	public void setEditable(boolean editable) {
-		this.editable = editable;
+		this.version = System.currentTimeMillis();
+		this.editable = false;
 	}
 
 	@Override
@@ -76,10 +44,10 @@ public class JSONDataSource extends DataSource{
 				+ "datasources:\n"
 				+ " - name: " + getName() + "\n"
 				+ "   type: " + getType() + "\n"
-				+ "   url: " + getUrl() + "\n"
-				+ "   access: " + getAccess() + "\n"
-				+ "   version: " + getVersion() + "\n"
-				+ "   editable: " + isEditable();
+				+ "   url: " + this.url + "\n"
+				+ "   access: " + this.access + "\n"
+				+ "   version: " + this.version + "\n"
+				+ "   editable: " + this.editable;
 		
 		Writer writer = null;
 		try{

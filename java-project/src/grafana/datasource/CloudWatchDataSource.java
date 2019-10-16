@@ -20,33 +20,13 @@ public class CloudWatchDataSource extends DataSource{
 	public CloudWatchDataSource(String accessKey, String secretKey, String defaultRegion) {
 		setName("CloudWatch"+(++counter));
 		setType("cloudwatch");
-		setAccessKey(accessKey);
-		setSecretKey(secretKey);
-		setDefaultRegion(defaultRegion);
-	}
-
-	public String getAccessKey() {
-		return accessKey;
-	}
-
-	public void setAccessKey(String accessKey) {
 		this.accessKey = accessKey;
-	}
-
-	public String getSecretKey() {
-		return secretKey;
-	}
-
-	public void setSecretKey(String secretKey) {
 		this.secretKey = secretKey;
+		this.defaultRegion = defaultRegion;
 	}
-
+	
 	public String getDefaultRegion() {
 		return defaultRegion;
-	}
-
-	public void setDefaultRegion(String defaultRegion) {
-		this.defaultRegion = defaultRegion;
 	}
 
 	@Override
@@ -58,10 +38,10 @@ public class CloudWatchDataSource extends DataSource{
 				+ "   type: " + getType() + "\n" 
 				+ "   jsonData:\n"
 				+ "     authType: keys\n"
-				+ "     defaultRegion: " + getDefaultRegion() + "\n"
+				+ "     defaultRegion: " + this.defaultRegion + "\n"
 				+ "   secureJsonData:\n"
-				+ "     accessKey: \"" + getAccessKey() + "\"\n"
-				+ "     secretKey: \"" + getSecretKey() + "\"";
+				+ "     accessKey: \"" + this.accessKey + "\"\n"
+				+ "     secretKey: \"" + this.secretKey + "\"";
 				
 		Writer writer = null;
 		try{

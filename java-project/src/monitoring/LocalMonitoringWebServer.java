@@ -19,6 +19,7 @@ import grafana.misc.GrafanaTimeseriePoint;
 public class LocalMonitoringWebServer{
 	private HttpServer apiServer;
 	private int port;
+	private InfoCollector collector;
 	private int collectorDelay;
 	private static String searchString = buildSearchStringFromMetrics();
 	
@@ -63,7 +64,7 @@ public class LocalMonitoringWebServer{
 		this.apiServer.setExecutor(null);
 		
 		//Avvio il thread che colleziona i punti del grafo
-		Thread collector = new Thread(new InfoCollector(this.collectorDelay));
+		collector = new InfoCollector(this.collectorDelay);
 		collector.start();
 
 		this.apiServer.start();
@@ -187,6 +188,7 @@ public class LocalMonitoringWebServer{
 	}
 	
 	public void stop() {
+		collector.terminate();
 		this.apiServer.stop(0);
 	}
 

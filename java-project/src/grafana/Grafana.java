@@ -24,12 +24,6 @@ public class Grafana {
 	
 	private LocalDashboard localDashboard;
 	private LocalMonitoringWebServer localWebServer;
-	
-	/*
-	private AWSDashboard awsDashboard;
-	
-	private AzureDashboard azureDashboard;
-	*/
 
 	//Costruttore
 	public Grafana(int httpPort, boolean consoleLog) {
@@ -78,8 +72,7 @@ public class Grafana {
 		    grafanaOutputPrinter.start();
 	    }
 	    
-	}
-	
+	}	
 	private boolean deployServerFolder() {
 		//Ottengo l'archivio dei file server di Grafana posto all'interno dell'eseguibile Java
 		InputStream input = Grafana.class.getResourceAsStream("/server/"+serverName);
@@ -117,7 +110,7 @@ public class Grafana {
 	    element.delete();
 	}
 	
-	public void keepRunning() throws InterruptedException {
+	public void waitFor() throws InterruptedException {
 		this.grafana.waitFor();
 	}
 	

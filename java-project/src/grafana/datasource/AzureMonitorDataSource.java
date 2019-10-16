@@ -24,61 +24,13 @@ public class AzureMonitorDataSource extends DataSource{
 	public AzureMonitorDataSource(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey) {
 		setName("AzureMonitor"+(++counter));
 		setType("grafana-azure-monitor-datasource");
-		setTenantId(tenantId);
-		setClientId(clientId);
-		setClientSecret(clientSecret);
-		setDefaultSubscription(defaultSubscription);
-		setApplicationId(applicationId);
-		setApiKey(apiKey);
-	}	
-
-	public String getTenantId() {
-		return tenantId;
-	}
-
-	public void setTenantId(String tenantId) {
 		this.tenantId = tenantId;
-	}
-
-	public String getClientId() {
-		return clientId;
-	}
-
-	public void setClientId(String clientId) {
 		this.clientId = clientId;
-	}
-
-	public String getClientSecret() {
-		return clientSecret;
-	}
-
-	public void setClientSecret(String clientSecret) {
 		this.clientSecret = clientSecret;
-	}
-
-	public String getDefaultSubscription() {
-		return defaultSubscription;
-	}
-
-	public void setDefaultSubscription(String defaultSubscription) {
 		this.defaultSubscription = defaultSubscription;
-	}
-
-	public String getApplicationId() {
-		return applicationId;
-	}
-
-	public void setApplicationId(String applicationId) {
 		this.applicationId = applicationId;
-	}
-
-	public String getApiKey() {
-		return apiKey;
-	}
-
-	public void setApiKey(String apiKey) {
 		this.apiKey = apiKey;
-	}
+	}	
 
 	@Override
 	public void createConfig() {
@@ -90,13 +42,13 @@ public class AzureMonitorDataSource extends DataSource{
 				+ "   access: proxy\n" 
 				+ "   jsonData:\n"
 				+ "     cloudName: azuremonitor\n"
-				+ "     subscriptionId: " + getDefaultSubscription() + "\n"
-				+ "     tenantId: " + getTenantId() + "\n"
-				+ "     clientId: " + getClientId() + "\n"
-				+ "     appInsightsAppId: " + getApplicationId() + "\n"
+				+ "     subscriptionId: " + this.defaultSubscription + "\n"
+				+ "     tenantId: " + this.tenantId + "\n"
+				+ "     clientId: " + this.clientId + "\n"
+				+ "     appInsightsAppId: " + this.applicationId + "\n"
 				+ "   secureJsonData:\n"
-				+ "     clientSecret: " + getClientSecret() + "\n"
-				+ "     appInsightsApiKey: " + getApiKey() + "\n";
+				+ "     clientSecret: " + this.clientSecret + "\n"
+				+ "     appInsightsApiKey: " + this.apiKey + "\n";
 				
 		Writer writer = null;
 		try{
