@@ -29,6 +29,14 @@ This is a list of the currently supported services you can monitor through the l
 |   | *Storage Queue* |
 
 You can also run a simple HTTP Web Server to monitor the **local system** (CPU usage and temperature, Memory usage) in real time.
+# Dependencies
+
+ - [Zip4j](https://github.com/srikanth-lingala/zip4j) - to manage (essentially extract) the archive containing the Grafana server;
+ - [JSON-java](https://github.com/stleary/JSON-java) - to better manage the data exchange with Grafana for the Local Monitoring;
+ - [jSensors](https://github.com/profesorfalken/jSensors) - to get the CPU temperature.
+
+Thanks to all the creators for their awesome work!
+
 # Quick Start
 In order to monitor a specific service, you need to get a Grafana instance first specifying the web server port and a flag indicating whether or not to print the console logs:
 ```java
@@ -58,7 +66,7 @@ grafana.enableLocalMonitoring(API_PORT, COLLECTOR_DELAY);
 
 # Documentation
 
- - grafana.Grafana
+ - [grafana.Grafana](#Grafana)
 	 - [Constructor](#GrafanaCostructor)
 	 - [start](#GrafanaStart)
 	 - [addDashboard](#GrafanaAddDashboard)
@@ -67,8 +75,8 @@ grafana.enableLocalMonitoring(API_PORT, COLLECTOR_DELAY);
 	 - [disableLocalMonitoring](#GrafanaDisableLocalMonitoring)
 	 - [waitFor](#GrafanaWaitFor)
 - grafana.datasource
-	- grafana.datasource.AzureMonitorDataSource
-		- Constructor
+	- [grafana.datasource.AzureMonitorDataSource](#AzureMonitor)
+		- [Constructor](#AzureMonitorConstructor)
 	- grafana.datasource.CloudWatchDataSource
 		- Constructor
 	- grafana.datasource.JSONDataSource
@@ -88,8 +96,10 @@ grafana.enableLocalMonitoring(API_PORT, COLLECTOR_DELAY);
 	- grafana.dashboard.AzureQueueDashboard
 		- Constructor
 
+<a name ="Grafana"></a>
 ## Grafana
 It's the core of the library as it represents the Grafana server itself and it's used to control the dashboards.
+
 <a name="GrafanaCostructor"></a>
 ### `Grafana(int httpPort, boolean consoleLog)`
 Deploys a new Grafana server instance in a temporary system folder.
@@ -122,10 +132,13 @@ Disables the local monitoring by removing its dashboard and stopping the collect
 
 <a name="GrafanaWaitFor"></a>
  ### `void waitFor() throws InterruptedException`
-Prevents the Grafana process to close when the are no more instructions left in Java (note that this method is blocking).
+Prevents the Grafana process to close when there are no more instructions left in Java (note that this method is blocking).
 
+<a name="AzureMonitor"></a>
 ## AzureMonitorDatasource
-It represents the Azure Monitor Datasource and is responsible to create its configuration file for provisioning.
+Represents the Azure Monitor Datasource and is responsible to create its configuration file for provisioning.
+
+<a name="AzureMonitorConstructor"></a>
 ### `AzureMonitorDataSource(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey)`
  - `tenantId` lorem ipsum dolor sit amet
  - `clientId` lorem ipsum dolor sit amet
@@ -135,3 +148,4 @@ It represents the Azure Monitor Datasource and is responsible to create its conf
  - `apiKey` lorem ipsum dolor sit amet
 
 lorem ipsum dolor sit amet
+
