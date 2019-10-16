@@ -1,5 +1,3 @@
-
-
 # Cloud Hub
 *Cloud Hub* is a Java library that uses [Grafana](https://grafana.com/ "Grafana") and helps you monitoring your Multicloud System, providing ready-to-use and configurable **Dashboards**.
 
@@ -74,12 +72,12 @@ grafana.enableLocalMonitoring(API_PORT, COLLECTOR_DELAY);
 	 - [enableLocalMonitoring](#GrafanaEnableLocalMonitoring)
 	 - [disableLocalMonitoring](#GrafanaDisableLocalMonitoring)
 	 - [waitFor](#GrafanaWaitFor)
-- [grafana.datasource](#Datasource)
+- grafana.datasource
 	- [grafana.datasource.AzureMonitorDataSource](#AzureMonitor)
 		- [Constructor](#AzureMonitorConstructor)
 	- [grafana.datasource.CloudWatchDataSource](#CloudWatch)
 		- [Constructor](#CloudWatchConstructor)
-- [grafana.dashboard](#Dashboard)
+- grafana.dashboard
 	- [grafana.dashboard.AWSLambdaDashboard](#AWSLambda)
 		- [Constructor](#AWSLambdaConstructor)
 		- [addFunction](#AWSLambdaAddFunction)
@@ -110,12 +108,12 @@ Runs the Grafana server previously deployed.
 
 <a name="GrafanaAddDashboard"></a>
 ### `void addDashboard(Dashboard dashboard)`
-Adds a dashboard to Grafana.
+Adds a dashboard to Grafana by deploying its configuration file.
  - `dashboard` is one of the supported dashboards (which extends the abstract *Dashboard* class)
 
 <a name="GrafanaRemoveDashboard"></a>
 ### `void removeDashboard(Dashboard dashboard)`
-Removes a dashboard from Grafana.
+Removes a dashboard from Grafana by deleting its configuration file.
  - `dashboard` is one of the supported dashboards (which extends the abstract *Dashboard* class)
 
 <a name="GrafanaEnableLocalMonitoring"></a>
@@ -163,14 +161,14 @@ You can find more about that on the Grafana documentation [here](https://grafana
 
 You also need to specify:
  - `defaultRegion` (e.g. *us-east-1*)
- - 
+
 <a name="AWSLambdaDashboard"></a>
 ## AWSLambdaDashboard
 Represents the Dashboard used to monitor the AWS Lambda functions.
 <a name="AWSLambdaDashboardConstructor"></a>
 ### `AWSLambdaDashboard(String name, CloudWatchDataSource cloudWatchDataSource)`
  - `name` is a unique name used to identify the Dashboard. It is also its title in Grafana
- - `cloudWatchDataSource`is the Datasource where to get the informations from
+ - `cloudWatchDataSource` is the Datasource where to get the informations from
 
  <a name="AWSLambdaDashboardAddFunction"></a>
 ### `void addFunction(String functionName)`
@@ -184,7 +182,7 @@ Represents the Dashboard used to monitor the AWS SQS service.
 <a name="AWSSQSDashboardConstructor"></a>
 ### `AWSSQSDashboard(String name, CloudWatchDataSource cloudWatchDataSource)`
  - `name` is a unique name used to identify the Dashboard. It is also its title in Grafana
- - `cloudWatchDataSource`is the Datasource where to get the informations from
+ - `cloudWatchDataSource` is the Datasource where to get the informations from
 
 <a name="AWSSQSDashboardAddQueue"></a>
 ### `void addQueue(String queueName)`
@@ -198,7 +196,7 @@ Represents the Dashboard used to monitor the AWS Billing service.
 <a name="AWSBillingDashboardConstructor"></a>
 ### `AWSBillingDashboard(String name, CloudWatchDataSource cloudWatchDataSource)`
  - `name` is a unique name used to identify the Dashboard. It is also its title in Grafana
- - `cloudWatchDataSource`is the Datasource where to get the informations from
+ - `cloudWatchDataSource` is the Datasource where to get the informations from
 
 <a name="AzureFunctionsDashboard"></a>
 ## AzureFunctionsDashboard
@@ -207,7 +205,7 @@ Represents the Dashboard used to monitor the AWS Billing service.
 <a name="AzureFunctionsDashboardConstructor"></a>
 ### `AzureFunctionsDashboard(String name, AzureMonitorDataSource azureMonitorDataSource)`
  - `name` is a unique name used to identify the Dashboard. It is also its title in Grafana
- - `azureMonitorDataSource`is the Datasource where to get the informations from
+ - `azureMonitorDataSource` is the Datasource where to get the informations from
 
 <a name="AzureFunctionsDashboardAddFunction"></a>
 ### `void addFunction(String functionName)`
@@ -221,9 +219,9 @@ Represents the Dashboard used to monitor the Azure Queue Storage service.
 <a name="AzureQueueDashboardConstructor"></a>
 ### `AzureQueueDashboard(String name, String resourceGroup, String resourceName, AzureMonitorDataSource azureMonitorDataSource)`
  - `name` is a unique name used to identify the Dashboard. It is also its title in Grafana
- - `resourceGroup`is the name of the resource group where the storage account is located
+ - `resourceGroup` is the name of the resource group where the storage account is located
  - `resourceName` is the name of the storage account
- - `azureMonitorDataSource`is the Datasource where to get the informations from
+ - `azureMonitorDataSource` is the Datasource where to get the informations from
 
 The only Azure Monitor limitation is that you can't filter the queue you want to monitor, but you will get all of them together.
 In order to overcome this limitation there is the Azure Service Bus which is not implemented yet.
