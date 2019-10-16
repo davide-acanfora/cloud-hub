@@ -1,4 +1,5 @@
 
+
 # Cloud Hub
 *Cloud Hub* is a Java library that uses [Grafana](https://grafana.com/ "Grafana") and helps you monitoring your Multicloud System, providing ready-to-use and configurable **Dashboards**.
 
@@ -29,8 +30,8 @@ This is a list of the currently supported services you can monitor through the l
 |   | *Storage Queue* |
 
 You can also run a simple HTTP Web Server to monitor the **local system** (CPU usage and temperature, Memory usage) in real time.
-# Dependencies
 
+# Dependencies
  - [Zip4j](https://github.com/srikanth-lingala/zip4j) - to manage (essentially extract) the archive containing the Grafana server;
  - [JSON-java](https://github.com/stleary/JSON-java) - to better manage the data exchange with Grafana for the Local Monitoring;
  - [jSensors](https://github.com/profesorfalken/jSensors) - to get the CPU temperature.
@@ -65,7 +66,6 @@ grafana.enableLocalMonitoring(API_PORT, COLLECTOR_DELAY);
 ```
 
 # Documentation
-
  - [grafana.Grafana](#Grafana)
 	 - [Constructor](#GrafanaCostructor)
 	 - [start](#GrafanaStart)
@@ -74,27 +74,25 @@ grafana.enableLocalMonitoring(API_PORT, COLLECTOR_DELAY);
 	 - [enableLocalMonitoring](#GrafanaEnableLocalMonitoring)
 	 - [disableLocalMonitoring](#GrafanaDisableLocalMonitoring)
 	 - [waitFor](#GrafanaWaitFor)
-- grafana.datasource
+- [grafana.datasource](#Datasource)
 	- [grafana.datasource.AzureMonitorDataSource](#AzureMonitor)
 		- [Constructor](#AzureMonitorConstructor)
-	- grafana.datasource.CloudWatchDataSource
-		- Constructor
-	- grafana.datasource.JSONDataSource
-		- Constructor
-- grafana.dashboard
-	- grafana.dashboard.AWSLambdaDashboard
-		- Constructor
-		- addFunction
-	-  grafana.dashboard.AWSSQSDashboard
-		- Constructor
-		- addQueue
-	- grafana.dashboard.AWSBillingDashboard
-		- Constructor
-	- grafana.dashboard.AzureFunctionsDashboard
-		- Constructor
-		- addFunction
-	- grafana.dashboard.AzureQueueDashboard
-		- Constructor
+	- [grafana.datasource.CloudWatchDataSource](#CloudWatch)
+		- [Constructor](#CloudWatchConstructor)
+- [grafana.dashboard](#Dashboard)
+	- [grafana.dashboard.AWSLambdaDashboard](#AWSLambda)
+		- [Constructor](#AWSLambdaConstructor)
+		- [addFunction](#AWSLambdaAddFunction)
+	-  [grafana.dashboard.AWSSQSDashboard](#AWSSQSDashboard)
+		- [Constructor](#AWSSQSDashboardConstructor)
+		- [addQueue](#AWSSQSDashboardAddQueue)
+	- [grafana.dashboard.AWSBillingDashboard](#AWSBillingDashboard)
+		- [Constructor](#AWSBillingDashboardConstructor)
+	- [grafana.dashboard.AzureFunctionsDashboard](#AzureFunctionsDashboard)
+		- [Constructor](#AzureFunctionsDashboardConstructor)
+		- [addFunction](#AzureFunctionsDashboardAddFunction)
+	- [grafana.dashboard.AzureQueueDashboard](#AzureQueueDashboard)
+		- [Constructor](#AzureQueueDashboardConstructor)
 
 <a name ="Grafana"></a>
 ## Grafana
@@ -140,12 +138,92 @@ Represents the Azure Monitor Datasource and is responsible to create its configu
 
 <a name="AzureMonitorConstructor"></a>
 ### `AzureMonitorDataSource(String tenantId, String clientId, String clientSecret, String defaultSubscription, String applicationId, String apiKey)`
- - `tenantId` lorem ipsum dolor sit amet
- - `clientId` lorem ipsum dolor sit amet
- - `clientSecret` lorem ipsum dolor sit amet
- - `defaultSubscription` lorem ipsum dolor sit amet
- - `applicationId` lorem ipsum dolor sit amet
- - `apiKey` lorem ipsum dolor sit amet
+You need 4 pieces of information from the Azure Portal:
+ - `tenantId` (Azure Active Directory -> Properties -> Directory ID)
+ - `clientId` (Azure Active Directory -> App Registrations -> Choose your app -> Application ID)
+ - `clientSecret` (Azure Active Directory -> App Registrations -> Choose your app -> Keys)
+ - `defaultSubscription` (Subscriptions -> Choose subscription -> Overview -> Subscription ID)
 
-lorem ipsum dolor sit amet
+You need 2 more pieces of information from the Azure Portal:
+ - `applicationId` 
+ - `apiKey`
 
+Please refer to this [link](https://dev.applicationinsights.io/quickstart/) to know how to get them. If you are still having problems, please refer to the Grafana documentation [here](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource).
+
+<a name="CloudWatch"></a>
+## CloudWatchDatasource
+Represents the CloudWatch Datasource from AWS and is responsible to create its configuration file for provisioning.
+
+### `CloudWatchDatasource(String accessKey, String secretKey, String defaultRegion)`
+Grafana needs permissions granted via IAM to be able to read CloudWatch metrics. So after creating the role needed you have to provide:
+ - `accessKey` 
+ - `secretKey`
+
+You can find more about that on the Grafana documentation [here](https://grafana.com/docs/features/datasources/cloudwatch/). If you need a quick guide have a look at [this](https://medium.com/@_oleksii_/using-aws-cloudwatch-in-grafana-8294b7a2e7dd).
+
+You also need to specify:
+ - `defaultRegion` (e.g. *us-east-1*)
+ - 
+<a name="AWSLambdaDashboard"></a>
+## AWSLambdaDashboard
+Represents the Dashboard used to monitor the AWS Lambda functions.
+<a name="AWSLambdaDashboardConstructor"></a>
+### `AWSLambdaDashboard(String name, CloudWatchDataSource cloudWatchDataSource)`
+ - `name` is a unique name used to identify the Dashboard. It is also its title in Grafana
+ - `cloudWatchDataSource`is the Datasource where to get the informations from
+
+ <a name="AWSLambdaDashboardAddFunction"></a>
+### `void addFunction(String functionName)`
+Adds a function to be monitored from the Dashboard.
+- `functionName` is the name of the function you want to monitor
+
+<a name="AWSSQSDashboard"></a>
+## AWSSQSDashboard
+Represents the Dashboard used to monitor the AWS SQS service.
+
+<a name="AWSSQSDashboardConstructor"></a>
+### `AWSSQSDashboard(String name, CloudWatchDataSource cloudWatchDataSource)`
+ - `name` is a unique name used to identify the Dashboard. It is also its title in Grafana
+ - `cloudWatchDataSource`is the Datasource where to get the informations from
+
+<a name="AWSSQSDashboardAddQueue"></a>
+### `void addQueue(String queueName)`
+Adds a queue to be monitored from the Dashboard.
+- `queueName` is the name of the queue you want to monitor
+
+<a name="AWSBillingDashboard"></a>
+## AWSBillingDashboard
+Represents the Dashboard used to monitor the AWS Billing service.
+
+<a name="AWSBillingDashboardConstructor"></a>
+### `AWSBillingDashboard(String name, CloudWatchDataSource cloudWatchDataSource)`
+ - `name` is a unique name used to identify the Dashboard. It is also its title in Grafana
+ - `cloudWatchDataSource`is the Datasource where to get the informations from
+
+<a name="AzureFunctionsDashboard"></a>
+## AzureFunctionsDashboard
+Represents the Dashboard used to monitor the AWS Billing service.
+
+<a name="AzureFunctionsDashboardConstructor"></a>
+### `AzureFunctionsDashboard(String name, AzureMonitorDataSource azureMonitorDataSource)`
+ - `name` is a unique name used to identify the Dashboard. It is also its title in Grafana
+ - `azureMonitorDataSource`is the Datasource where to get the informations from
+
+<a name="AzureFunctionsDashboardAddFunction"></a>
+### `void addFunction(String functionName)`
+Adds a function to be monitored from the Dashboard.
+- `functionName` is the name of the function you want to monitor
+
+<a name="AzureQueueDashboard"></a>
+## AzureQueueDashboard
+Represents the Dashboard used to monitor the Azure Queue Storage service.
+
+<a name="AzureQueueDashboardConstructor"></a>
+### `AzureQueueDashboard(String name, String resourceGroup, String resourceName, AzureMonitorDataSource azureMonitorDataSource)`
+ - `name` is a unique name used to identify the Dashboard. It is also its title in Grafana
+ - `resourceGroup`is the name of the resource group where the storage account is located
+ - `resourceName` is the name of the storage account
+ - `azureMonitorDataSource`is the Datasource where to get the informations from
+
+The only Azure Monitor limitation is that you can't filter the queue you want to monitor, but you will get all of them together.
+In order to overcome this limitation there is the Azure Service Bus which is not implemented yet.
