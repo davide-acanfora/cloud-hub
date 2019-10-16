@@ -200,7 +200,7 @@ Represents the Dashboard used to monitor the AWS Billing service.
 
 <a name="AzureFunctionsDashboard"></a>
 ## AzureFunctionsDashboard
-Represents the Dashboard used to monitor the AWS Billing service.
+Represents the Dashboard used to monitor the Azure Functions service.
 
 <a name="AzureFunctionsDashboardConstructor"></a>
 ### `AzureFunctionsDashboard(String name, AzureMonitorDataSource azureMonitorDataSource)`
