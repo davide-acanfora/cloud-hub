@@ -22,10 +22,12 @@ This is a list of the currently supported services you can monitor through the l
 | Cloud Provider | Service Name |
 | :------------: | :------------: |
 | Amazon Web Services | *Billing* |
+|   | *EC2* |
 |   | *Lambda* |
 |   | *SQS* |
 | Microsoft Azure | *Functions* |
 |   | *Storage Queue* |
+|   | *VMs* |
 
 You can also run a simple HTTP Web Server to monitor the **local system** (CPU usage and temperature, Memory usage) in real time.
 
