@@ -24,8 +24,10 @@ This is a list of the currently supported services you can monitor through the l
 | Amazon Web Services | *Billing* |
 |   | *EC2* |
 |   | *Lambda* |
+|   | *S3* |
 |   | *SQS* |
-| Microsoft Azure | *Functions* |
+| Microsoft Azure | *Container (Bucket)* |
+|   | *Functions* |
 |   | *Storage Queue* |
 |   | *VMs* |
 
