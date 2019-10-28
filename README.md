@@ -26,8 +26,8 @@ This is a list of the currently supported services you can monitor through the l
 |   | *Lambda* |
 |   | *S3* |
 |   | *SQS* |
-| Microsoft Azure | *Container (Bucket)* |
-|   | *Functions* |
+| Microsoft Azure | *Functions* |
+|   | *Storage Container* |
 |   | *Storage Queue* |
 |   | *VMs* |
 
