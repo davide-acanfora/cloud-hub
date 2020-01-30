@@ -34,16 +34,16 @@ public class AWSLambdaDashboard extends Dashboard{
 			dashboard = dashboard.replaceAll("\\$cloudwatch-datasource-name", dataSource.getName());
 			dashboard = dashboard.replaceAll("\\$cloudwatch-default-region", ((CloudWatchDataSource) dataSource).getDefaultRegion());
 			if (functions.isEmpty()) 
-				dashboard = dashboard.replaceAll("\\$functionname-regex|\\$variable-current", "");
+				dashboard = dashboard.replaceAll("\\$variable-functions|\\$variable-current", "");
 			else {
-				String regex = "";
+				String options = "";
 				int i;
 				for (i=0; i<functions.size()-1; i++)
-					regex += functions.get(i) + "|";
-				regex += functions.get(i);
-				dashboard = dashboard.replaceAll("\\$functionname-regex", regex);
+					options += "{\"selected\":false, \"text\":\"" + functions.get(i) + "\", \"value\":\"" + functions.get(i) + "\"},";
+				options += "{\"selected\":true, \"text\":\"" + functions.get(i) + "\", \"value\":\"" + functions.get(i) + "\"}";
+				dashboard = dashboard.replaceAll("\\$variable-functions", options);
 				dashboard = dashboard.replaceAll("\\$variable-current", functions.get(i));
-			}	
+			}
 			
 			file = new File(Grafana.folderPath+"/conf/provisioning/dashboards/"+getName()+".json");
 			Writer writer = null;
